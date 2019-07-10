@@ -23,11 +23,11 @@
     
     
     <entry>
-      <title>my first post</title>
+      <title>My First Post</title>
       <link href="/2019/07/10/my-first-post/"/>
       <url>/2019/07/10/my-first-post/</url>
       
-        <content type="html"><![CDATA[<p><img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1868008226,1930371026&fm=26&gp=0.jpg" alt="avatar"></p>]]></content>
+        <content type="html"><![CDATA[<div align="center"><img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1868008226,1930371026&fm=26&gp=0.jpg"><a id="more"></a><p>END</p></div>]]></content>
       
       
       
