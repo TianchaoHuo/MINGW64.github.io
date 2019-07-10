@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-07-10T07:49:33.417Z</updated>
+  <updated>2019-07-10T13:27:04.417Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,26 +17,26 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>xxx</title>
+    <title></title>
     <link href="http://yoursite.com/2019/07/10/1/"/>
     <id>http://yoursite.com/2019/07/10/1/</id>
     <published>2019-07-10T07:17:55.074Z</published>
-    <updated>2019-07-10T07:49:33.417Z</updated>
+    <updated>2019-07-10T13:27:04.417Z</updated>
     
-    <content type="html"><![CDATA[<p>for checking</p>]]></content>
+    <content type="html"><![CDATA[<p>##for testing</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;for checking&lt;/p&gt;
+        &lt;p&gt;##for testing&lt;/p&gt;
 
       
     
     </summary>
     
     
-      <category term="随笔" scheme="http://yoursite.com/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="deep learning" scheme="http://yoursite.com/tags/deep-learning/"/>
     
   </entry>
   
