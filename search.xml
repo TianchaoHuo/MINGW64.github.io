@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Friut Detection, Tracking and Counting</title>
+      <link href="/2019/07/11/FriutDetectionTrackingandCounting/"/>
+      <url>/2019/07/11/FriutDetectionTrackingandCounting/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><hr><p>This project is designed to do fruit detection, traking and counting. Videos are already provided.</p><p>Co-Author: Chaohuo Wu, Xiaochen Liu, Do Kyoun Lee</p><a id="more"></a><h1 id="Objectives"><a href="#Objectives" class="headerlink" title="Objectives"></a>Objectives</h1><hr><p> 1 . Read in a video clip, and display the video frame by frame,<br> 2 . Detect all lemons and bananas in each frame, segment the corresponding pixel regions, count the number of pixels, draw a bounding box on these detected fruits.<br> 3 . Track the detected oranges and bananas in the entire video sequence, until they disappear.<br> 4 . Count the number of fruits of each type, and update the counting result in real-time.<br> 5 . At the end of each video clip, report the success rate of your program.</p><h1 id="Video"><a href="#Video" class="headerlink" title="Video"></a>Video</h1><hr><p>Open the video named ‘Test.mp4’. This is the one of the testing video.  </p><h1 id="Step"><a href="#Step" class="headerlink" title="Step"></a>Step</h1><hr><p>1 . DownLoad the project material from google driver. The link is: <a href="https://drive.google.com/open?id=1yQXSwYu-GljAxXZLB0YlPoV0lx7KVMPh" target="_blank" rel="noopener">https://drive.google.com/open?id=1yQXSwYu-GljAxXZLB0YlPoV0lx7KVMPh</a><br>2 . Open MATLAB software.<br>3 . Decompress the ‘project material.zip’ and copy the ‘fruitDetectionTrackingCounting.m’ into the folder.<br>4 . Change the path to the folder.<br>4 . Load the ‘pal2.mat’ which contains the Faster RCNN detector.<br>4 . Input ‘global pal2’ in command window.<br>5 . Open and run the ‘FruitDetectionTrackingCounting’ script.</p><ul><li>important: Before running the script, please make sure you have already input ‘global pal2’ in command window, otherwise an exception will occur<br>‘function ‘detect’ for uint 8 variables are not defined.</li><li>Note: Since maximum size for submission files on wattle is 200MB, some large but important materials need to be download from goole driver.</li></ul><h1 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h1><h5 id="Visually-Demo"><a href="#Visually-Demo" class="headerlink" title="Visually Demo"></a>Visually Demo</h5><video width="480" height="320" controls><source src="FriutDetectionTrackingandCounting\Test.mp4"></video><p><br><br></p><h5 id="Accuracy-of-this-model"><a href="#Accuracy-of-this-model" class="headerlink" title="Accuracy of this model"></a>Accuracy of this model</h5><div align="center"><img src="/2019/07/11/FriutDetectionTrackingandCounting/table.png"></div><h1 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h1><hr><p>We used Transfer Learning, Alexnet network, Faster-RCNN, Kalman filtert, and others techology to implement this project and have tested all provided videos. The performance is shown in the report ‘Fruit Detection, Tracking and Counting_Team 4.pdf’.</p><h1 id="References"><a href="#References" class="headerlink" title="References:"></a>References:</h1><p> [1]Motion-Based-Multiple-object-tracking, <a href="https://www.mathworks.com/help/vision/examples/motion-based-multiple-object-tracking.html" target="_blank" rel="noopener">https://www.mathworks.com/help/vision/examples/motion-based-multiple-object-tracking.html</a><br> [2] A. Krizhevsky, I. Sutskever and G. Hinton, “ImageNet classification with deep convolutional neural networks,” Communications of the ACM, vol.60, (6), pp. 84-90, 2017. . DOI: 10.1145/3065386.</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Computer Vision </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Linear Regression</title>
       <link href="/2019/07/11/Linear-Regression/"/>
       <url>/2019/07/11/Linear-Regression/</url>
