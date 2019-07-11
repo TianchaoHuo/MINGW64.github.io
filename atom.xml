@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-07-10T13:27:04.417Z</updated>
+  <updated>2019-07-11T11:31:29.006Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linear Regression</title>
+    <link href="http://yoursite.com/2019/07/11/Linear%20Regression/"/>
+    <id>http://yoursite.com/2019/07/11/Linear Regression/</id>
+    <published>2019-07-11T08:27:49.211Z</published>
+    <updated>2019-07-11T11:31:29.006Z</updated>
+    
+    <content type="html"><![CDATA[<!--move--><p>##Introduction<br>Basically we can generally classify the linear regression as two different types.</p><ul><li>Linear regression with one variable</li><li>Linear regression with multiple variables</li></ul><!--move--><ol><li>For the first type of Linear regression, it only has one factor and a coresponding label. As shown in the forllowing figure, the size of the house is the variable and the price is so-called label. What we wanner to do is to find a line or curve to fit the data points and then estimate the price with given a new data point.</li></ol><div align="center"><img src="C:\Users\Admin\Blog1\source\_posts\image\Linear_regression\houseprice.jpg"></div><br><ol start="2"><li>Similarly , for the second type of Linear regression, it has mutiple variables to determine the housing price, such as the size, transportaion, schools, etc. Instead of using the single variable described above, a feature matrix is utilized in Linear regression.</li></ol><p>So, this is the basic concept of liear regression with one variable.</p><h2 id="Mathematical-Principle"><a href="#Mathematical-Principle" class="headerlink" title="Mathematical Principle"></a>Mathematical Principle</h2><p>This section is going to elaborate the hidden principle of Linear regression. At the begining, we need to make some denotation for effective description. The objective of Linear regression is to find a line or curve that fits data and then to estimate with given a new input.</p><h5 id="Modelling"><a href="#Modelling" class="headerlink" title="Modelling"></a>Modelling</h5><p>Simply denoting the input as :</p><p>$$x = [x_1,x_2,x_3,…,x_m]^T$$<br>note: $x_m$ here represnts a feature vector of the $m_{th}$ sample and the label is denoting as:<br>$$y = [y_1,y_2,y_3,…,y_m]^T$$</p><p>what we would like to do is to find a line :</p><p>$$h_{w}(x) = w_0 + w_1 x_1 + w_2 x_2 + …. + w_m x_m$$</p><p>Therefore, we need to find the parameters $w$ to obtain a good line or curve and then do estimation.<br>The beautiful expectation is that the estimated value is close to the truth value as possible as it can. In other words, the target is to minimize the distance between predicted value and truth value. Hence, we introude a function called “Cost function”, which is also named “Square Error function”.:</p><p>$$ J(w)=\frac{1}{2m}\sum_{i=1}^m (h_{w}(x_{(i)}) - y_{(i)})^2$$</p><p>$h_{w}(x_{(i)})$  denotes the predition of this model. As described before, the objective is to minimize the error by figuring out the parameters $w$.</p><h5 id="Gradient-descent"><a href="#Gradient-descent" class="headerlink" title="Gradient descent"></a>Gradient descent</h5><p>Obviously that the cost function is a convex function, so that we just take a derivative with respect to the $w$ and then let its derivative equal to zero to obtain the weight at the local minimum point. Next, we need to update the weight, $w$ by traversing the whole data set from $x_1$ to $x_m$ using forllowing equation:<br>$$w_i = w_i - \alpha \frac{d}{dw}J(w)$$<br>$\alpha$ is represented as learning rate.<br>This method is named as gradient descent algorithm, which will continuously update the weight and then the cost function will gradually step to the minimum point.</p><h5 id="Statistically-description"><a href="#Statistically-description" class="headerlink" title="Statistically description"></a>Statistically description</h5><ol><li>Minimum Square  Error<br>continuously using above denotation, we introude the Minimum Square Error(MSE) algorithm. We have a cost function and to simplfy the computation, we omit the constant scaling varaibale  $\frac{1}{2m}$ and replace $h_w(x_{(i)})$ with $w^Tx_i$<br>$$ J(w)=\sum_{i=1}^m ||t_i - y_i||^2=\sum_{i=1}^m (w^Tx_i- y_i)^2$$<br>where $t_i$ is the output of the mdoel.<br>Therefore, we have<br>$$ J(w)=(w^Tx_1-y_1,w^Tx_2-y_2,…,w^Tx_m-y_m)\left(\begin{matrix}w^Tx_1-y_1\w^Tx_2-y_2\\begin{matrix}\vdots\w^Tx_m-y_m\\end{matrix}\\end{matrix}\right)<br>$$$$\qquad=[w^T(x_1,x_2,…,x_m)-(y_1,y_2,…,y_m)][\left(\begin{matrix}x_1\x_2\\begin{matrix}\vdots\x_m\\end{matrix}\\end{matrix}\right)w-\left(\begin{matrix}y_1\y_2\\begin{matrix}\vdots\y_m\\end{matrix}\\end{matrix}\right)]$$$$=(W^TX^T-Y^T)(XW-Y)$$<br>$$\therefore J(w)=W^TX^TXW-W^TX^TY-Y^TXW+Y^TY=W^TX^TXW-2W^TX^TY-Y^TY$$<br>$$\therefore \hat{w}=argmin_w J(w)=\frac{d}{dw}J(w)=2X^TXW-2X^TY=0$$<br>$$X^TXW=X^TY  $$<br>Finally, we obtatin:<br>$$W^* =(X^TX)^{-1}X^TY$$<br>Or we can directly compute the weight, $w$, in this way:<br>$$J(w)=||t_i-y_i||^2$$<br>Take the Gradient<br>$$\frac{d}{dw}J(w)=2(XW-Y)^TX$$<br>solve for stationary point<br>$$X^TXW=X^TY$$</li></ol><p><br><br><br>2.Probability Perspective</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;!--move--&gt;
+
+&lt;p&gt;##Introduction&lt;br&gt;Basically we can generally classify the linear regression as two different types.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Linear regr
+      
+    
+    </summary>
+    
+    
+      <category term="Machine Learning" scheme="http://yoursite.com/tags/Machine-Learning/"/>
+    
+  </entry>
   
   <entry>
     <title></title>
