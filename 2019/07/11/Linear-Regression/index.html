@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/07/11/Linear-Regression/formula.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/07/11/Linear-Regression/regularization.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/07/11/Linear-Regression/relationship.jpg">
-<meta property="og:updated_time" content="2019-07-12T12:16:02.786Z">
+<meta property="og:updated_time" content="2019-07-12T12:37:01.484Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linear Regression">
 <meta name="twitter:description" content="IntroductionBasically we can generally classify the linear regression as two different types.  Linear regression with one variable Linear regression with multiple variables">
@@ -213,7 +213,7 @@
 
 <p>$$X^TXW=X^TY  $$<br>Finally, we obtatin:<br>$$W^* =(X^TX)^{-1}X^TY$$<br>Or we can directly compute the weight, $w$, in this way:<br>$$J(w)=||t_i-y_i||^2$$<br>Take the Gradient<br>$$\frac{d}{dw}J(w)=2(XW-Y)^TX$$<br>solve for stationary point<br>$$X^TXW=X^TY$$</p>
 <p><br><br></p>
-<h5 id="Maximum-likelihood"><a href="#Maximum-likelihood" class="headerlink" title="Maximum likelihood"></a>Maximum likelihood</h5><p>From the Probability persepctive, we supoose that $ \epsilon \thicksim N(0, \sigma^2)$，just ignoring bias term $b$ here for simpicity. Hence, $ t=y(x,w)+\epsilon=w^Tx+\epsilon$. Therefore, what we wanna do is to maximise the predition probability, $p(t|x,w)$, given data and weight. It is apparent that:<br>$$p(t|x,w)\thicksim N(w^T,\sigma^2)$$<br>$$p(t|x,w)=\frac{1}{\sqrt{2\pi}\sigma} exp[-\frac{(t-w^Tx)^2}{2\sigma^2}]<br>$$<br>We definitely aim to find the largest probability, which means that we are looking for a method that maximum likelihood. There are two persepctives to solve this problem.</p>
+<h5 id="Maximum-likelihood"><a href="#Maximum-likelihood" class="headerlink" title="Maximum likelihood"></a>Maximum likelihood</h5><p>From the Probability persepctive, we supoose that $ \epsilon \thicksim N(0, \sigma^2)$，just ignoring bias term $b$ here for simpicity. Hence, $ t=y(x,w)+\epsilon=w^Tx+\epsilon$. Therefore, what we wanna do is to maximise the prediction probability, $p(t|x,w)$, given data and weight. It is apparent that:<br>$$p(t|x,w)\thicksim N(w^T,\sigma^2)$$<br>$$p(t|x,w)=\frac{1}{\sqrt{2\pi}\sigma} exp[-\frac{(t-w^Tx)^2}{2\sigma^2}]<br>$$<br>We definitely aim to find the largest probability, which means that we are looking for a method that maximum likelihood. There are two persepctives to solve this problem.</p>
 <ul>
 <li>Frequentis Aprroach</li>
 <li>Bayesian Approach</li>
@@ -524,6 +524,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Computer Vision</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Machie Learning</a>
               </li>
              
               <li class="article-tag-list-item">
