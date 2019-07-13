@@ -6,25 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Shallow-Neural-Network | Homepage</title>
+  <title>Category: Machine Learning | Homepage</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="IntroductionThis blog will introduce the simple neural networks, showing the neural network represntation, computing a neural network’s output, and indicating what is activation function and why we ne">
-<meta name="keywords" content="Deep Learning">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Shallow-Neural-Network">
-<meta property="og:url" content="http://yoursite.com/2019/07/13/Shallow-Neural-Network/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Homepage">
+<meta property="og:url" content="http://yoursite.com/categories/Machine-Learning/index.html">
 <meta property="og:site_name" content="Homepage">
-<meta property="og:description" content="IntroductionThis blog will introduce the simple neural networks, showing the neural network represntation, computing a neural network’s output, and indicating what is activation function and why we ne">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/07/13/Shallow-Neural-Network/representation.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/07/13/Shallow-Neural-Network/activation.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/07/13/Shallow-Neural-Network/Relu.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/07/13/Shallow-Neural-Network/Leaky%20Relu.jpg">
-<meta property="og:updated_time" content="2019-07-13T16:46:56.839Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Shallow-Neural-Network">
-<meta name="twitter:description" content="IntroductionThis blog will introduce the simple neural networks, showing the neural network represntation, computing a neural network’s output, and indicating what is activation function and why we ne">
-<meta name="twitter:image" content="http://yoursite.com/2019/07/13/Shallow-Neural-Network/representation.jpg">
+<meta name="twitter:title" content="Homepage">
   
     <link rel="alternative" href="/atom.xml" title="Homepage" type="application/atom+xml">
   
@@ -154,229 +144,72 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Shallow-Neural-Network" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Shallow-Neural-Network
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	
+<a href="/2019/07/11/Linear-Regression/" class="archive-article-date">
+  	<time datetime="2019-07-11T11:59:55.577Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-11</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/07/11/Linear-Regression/">Linear Regression</a>
     </h1>
   
 
-        
-        
-        <!-- 不蒜子统计 -->
-        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
-              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
-        </span>
-
-<a href="/2019/07/13/Shallow-Neural-Network/" class="archive-article-date">
-  	<time datetime="2019-07-13T07:31:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-	    
-
-			
-				<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>This blog will introduce the simple neural networks, showing the neural network represntation, computing a neural network’s output, and indicating what is activation function and why we need a non-linear activation function. Besides that, the backpropagation will be introduced as well.</p>
-<a id="more"></a>
-<ul>
-<li>Neural network representation</li>
-<li>Computing the output of the neural network</li>
-<li>Activation function</li>
-<li>Backpropagation</li>
-</ul>
-<h2 id="Neural-networks-representation"><a href="#Neural-networks-representation" class="headerlink" title="Neural networks representation"></a>Neural networks representation</h2><div align="center"><img src="/2019/07/13/Shallow-Neural-Network/representation.jpg"></div><br>
-
-<p>Simply say that we have input $x_1, x_2, x_3$ and have one hidden layer with four neural units and finally we have one output unit in above figure showing a simple neural network architecture.</p>
-<h2 id="Computing-the-output-of-the-neural-network-Feedforward"><a href="#Computing-the-output-of-the-neural-network-Feedforward" class="headerlink" title="Computing the output of the neural network (Feedforward)"></a>Computing the output of the neural network (Feedforward)</h2><p>In order to figure out the output of the neural network, let’s make some denotation.<br>Input: $x_1, x_2, x_3$. weight: $[w_1^{[1]},w_2^{[1]},w_3^{[1]},…,w_3^{[4]}$. Therefore we have:<br>$$<br>z=w^Tx+b<br>$$where term “b” is bias term. For example,we can obtain: $z_1^{[1]}=w_1^{[1]T}x+b$. And so on and so forth.<br>$$<br>z_2^{[1]}=w_2^{[1]T}x+b\\<br>z_3^{[1]}=w_3^{[1]T}x+b\\<br>z_4^{[1]}=w_4^{[1]T}x+b<br>$$<br>and then pass through the non-linear function “sigmoid function”:<br>$$a_1^{[1]}=\sigma(z_1^{[1]})\\<br>a_2^{[1]}=\sigma(z_2^{[1]})\\<br>a_3^{[1]}=\sigma(z_3^{[1]})\\<br>a_4^{[1]}=\sigma(z_4^{[1]})<br>$$<br>and then multiply the weight agian and pass through the sigmoid function:<br>$$<br>z_1^{[2]}=w_1^{[2]T}a^{[1]}+b\\<br>a_1^{[2]}=\sigma(z_1^{[2]})<br>$$<br>Therefore, $ \hat{y}= \ a_1^{[2]} $ in this case.</p>
-<h2 id="Activation-function"><a href="#Activation-function" class="headerlink" title="Activation function"></a>Activation function</h2><p>What we use above is so-called activation functions. If there is no activation function in neural network, the output of the model is only the linear combination with input features x. Therefore, we can not use any linear activation function among hidden layers, but can use the linear activation in the output layer, which is the special case.<br>There are severl common used activation function, like “sigmoid”, “tanh”, “Relu”, and “leaky Relu”.</p>
-<div align="center"><img src="/2019/07/13/Shallow-Neural-Network/activation.jpg"></div><br>
-
-
-
-<ul>
-<li>sigmoid:<br>$$<br>a=\sigma(z)=\frac{1}{1+e^{-z}}\\<br>\frac{d}{dz}\sigma(z)=\sigma(z)(1-\sigma(z))<br>$$</li>
-<li>tanh:<br>$$<br>a=tanh(z)=\frac{e^z-e^{-z}}{e^z+e^{-z}}\\<br>\frac{d}{dz}tanh(z)=1-(tanh(z))^2<br>$$</li>
-<li>Relu:<br>$$<br>a=max(0,z)$$</li>
-</ul>
-<div align="center"><img src="/2019/07/13/Shallow-Neural-Network/Relu.jpg"></div><br>
-
-<ul>
-<li>leaky Relu<br>$$<br>a=max(0.01z,z)$$</li>
-</ul>
-<div align="center"><img src="/2019/07/13/Shallow-Neural-Network/Leaky Relu.jpg"></div><br>
-
-
-<p>The common disadvantage of sigmoid and tanh is that when the case where $z$ is too large or too small happens, the derivative of the function will be enormously small, even approximate to zero, which will decrease the speed of gradient descent. Alternatively, the  activation function “Relu” is also a popular choice in machine learning. The advantage of “Relu” is that the derivative is zero when the z is negative number. As for “Leaky Relu”, when z is negative number, the magnitude of this function is not equal to zero, rather slightly incline.<br>The experience to select the activation function:</p>
-<ul>
-<li>sigmoid: output is the binary classification</li>
-<li>tanh: almost suitable for most situation</li>
-<li>Relu: the most common defaut activation function</li>
-</ul>
-<h2 id="Backpropagation"><a href="#Backpropagation" class="headerlink" title="Backpropagation"></a>Backpropagation</h2><p>&lt;/font size = 18&gt; Continuing… </p>
-
-			
-		
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Deep Learning</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Machine Learning</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Deep-Learning//" class="article-tag-list-link color4">Deep Learning</a>
+        			<a href="/categories/Machine-Learning//" class="article-tag-list-link color2">Machine Learning</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/13/Shallow-Neural-Network/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2019/07/13/ElasticFusion/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          ElasticFusion
-        
-      </div>
-    </a>
   
   
-    <a href="/2019/07/12/Change-detection-using-GMM/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Change-detection-using-GMM</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-     <!-- 来必力City版安装代码 -->
-<div id="lv-container" data-id="city" data-uid="MTAyMC80NTIyNC8yMTczOQ==">
-	<script type="text/javascript">
-   (function(d, s) {
-       var j, e = d.getElementsByTagName(s)[0];
-
-       if (typeof LivereTower === 'function') { return; }
-
-       j = d.createElement(s);
-       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-       j.async = true;
-
-       e.parentNode.insertBefore(j, e);
-   })(document, 'script');
-	</script>
-<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
-</div>
-<!-- City版安装代码已完成 -->
-  
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -411,10 +244,10 @@
 	var yiliaConfig = {
 		mathjax: [object Object],
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
-		isCategory: false,
+		isCategory: true,
 		open_in_new: true,
 		toc_hide_index: true,
 		root: "/",
