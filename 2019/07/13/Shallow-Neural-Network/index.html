@@ -6,20 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Change-detection-using-GMM | Homepage</title>
+  <title>Shallow-Neural-Network | Homepage</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="OverviewChange detection is one of the most commonly used methods for detecting moving objects in a computer vision system. It detects moving objects in an image sequence by comparing the background m">
-<meta name="keywords" content="Computer Vision">
+  <meta name="description" content="IntroductionThis blog will introduce the simple neural networks, showing the neural network represntation, computing a neural network’s output, and indicating what is activation function and why we ne">
+<meta name="keywords" content="deep learning">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Change-detection-using-GMM">
-<meta property="og:url" content="http://yoursite.com/2019/07/12/Change-detection-using-GMM/index.html">
+<meta property="og:title" content="Shallow-Neural-Network">
+<meta property="og:url" content="http://yoursite.com/2019/07/13/Shallow-Neural-Network/index.html">
 <meta property="og:site_name" content="Homepage">
-<meta property="og:description" content="OverviewChange detection is one of the most commonly used methods for detecting moving objects in a computer vision system. It detects moving objects in an image sequence by comparing the background m">
+<meta property="og:description" content="IntroductionThis blog will introduce the simple neural networks, showing the neural network represntation, computing a neural network’s output, and indicating what is activation function and why we ne">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-12T14:57:51.120Z">
+<meta property="og:image" content="http://yoursite.com/2019/07/13/Shallow-Neural-Network/representation.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/07/13/Shallow-Neural-Network/activation.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/07/13/Shallow-Neural-Network/Relu.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/07/13/Shallow-Neural-Network/Leaky%20Relu.jpg">
+<meta property="og:updated_time" content="2019-07-13T12:08:42.508Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Change-detection-using-GMM">
-<meta name="twitter:description" content="OverviewChange detection is one of the most commonly used methods for detecting moving objects in a computer vision system. It detects moving objects in an image sequence by comparing the background m">
+<meta name="twitter:title" content="Shallow-Neural-Network">
+<meta name="twitter:description" content="IntroductionThis blog will introduce the simple neural networks, showing the neural network represntation, computing a neural network’s output, and indicating what is activation function and why we ne">
+<meta name="twitter:image" content="http://yoursite.com/2019/07/13/Shallow-Neural-Network/representation.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Homepage" type="application/atom+xml">
   
@@ -155,14 +160,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Change-detection-using-GMM" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Shallow-Neural-Network" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Change-detection-using-GMM
+      Shallow-Neural-Network
     </h1>
   
 
@@ -173,43 +178,51 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2019/07/12/Change-detection-using-GMM/" class="archive-article-date">
-  	<time datetime="2019-07-12T12:23:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-12</time>
+<a href="/2019/07/13/Shallow-Neural-Network/" class="archive-article-date">
+  	<time datetime="2019-07-13T07:31:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Change detection is one of the most commonly used methods for detecting moving objects in a computer vision system. It detects moving objects in an image sequence by comparing the background model with the current frame. Traditional moving target detection algorithms have problems such as dynamic background changes caused by illumination changes, noise and shadow sensitivity.</p>
+        <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>This blog will introduce the simple neural networks, showing the neural network represntation, computing a neural network’s output, and indicating what is activation function and why we need a non-linear activation function. Besides that, the backpropagation will be introduced as well.</p>
 <a id="more"></a>
-<p>In this project, a method based on Gaussian Mixture Model (GMM) is introduced for the challenge of object detection, which modeling each pixel of each frame as a mixture of Gaussians and using an on-line approximation to update the model. Based on whether the Gaussian distribution that represents it most effectively is considered part of the background model, each pixel is classified. This report is targeted to utilizes the python to implement the GMM algorithm to segment background for several videos<br><br><br>Repo: <a href="https://github.com/TianchaoHuo/Change-Detection-Using-GMM" target="_blank" rel="noopener">https://github.com/TianchaoHuo/Change-Detection-Using-GMM</a></p>
-<h2 id="Objective"><a href="#Objective" class="headerlink" title="Objective:"></a>Objective:</h2><p>1.Detecting the moving object in videos recorded by a stationary camera<br>2.Segmentation between foreground and background<br>3.Adaptive in working conditions<br>4.Not costly develop</p>
-<h2 id="Dataset"><a href="#Dataset" class="headerlink" title="Dataset"></a>Dataset</h2><p>PETS 2009 (<a href="ftp://pets.rdg.ac.uk" target="_blank" rel="noopener">ftp://pets.rdg.ac.uk</a>)</p>
-<h2 id="Step"><a href="#Step" class="headerlink" title="Step"></a>Step</h2><p>This implementataion is based on the python 3 and open-cv package.<br>Hence, you need to install the related implementation environment.</p>
-<h2 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h2><iframe width="700" height="500" src="//player.bilibili.com/player.html?aid=58925991&cid=102725017&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-
-
-
-
-<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><ul>
-<li>Pros</li>
-</ul>
-<ol>
-<li>Be adaptive to different scenes</li>
-<li>Be capable to segment videos</li>
-<li>Good trade-off between quality and execution time</li>
-</ol>
 <ul>
-<li>Cons</li>
+<li>Neural network representation</li>
+<li>Computing the output of the neural network</li>
+<li>Activation function</li>
+<li>Backpropagation</li>
 </ul>
-<ol>
-<li>Arbitrarily set the parameters</li>
-<li>Assume each pixel is independent of its neighbors.</li>
-</ol>
-<p>More hidden principle of GMM or details of this project, please look through the project report.</p>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p>[1] C. Stauffer and W. E. L. Grimson, “Adaptive background mixture models for real-time tracking,” in 1999, . DOI: 10.1109/CVPR.1999.784637.<br>[2] H. Shih-Shinh, <a href="https://www.youtube.com/watch?v=g_ve2txPkSc" target="_blank" rel="noopener">https://www.youtube.com/watch?v=g_ve2txPkSc</a>, 2018.<br>[3] Swapnil Das, <a href="https://github.com/swapnil96" target="_blank" rel="noopener">https://github.com/swapnil96</a></p>
+<h2 id="Neural-networks-representation"><a href="#Neural-networks-representation" class="headerlink" title="Neural networks representation"></a>Neural networks representation</h2><div align="center"><img src="/2019/07/13/Shallow-Neural-Network/representation.jpg"></div><br>
 
+<p>Simply say that we have input $x_1, x_2, x_3$ and have one hidden layer with four neural units and finally we have one output unit in above firgure showing a simple neural network architecture.</p>
+<h2 id="Computing-the-output-of-the-neural-network-Feedforward"><a href="#Computing-the-output-of-the-neural-network-Feedforward" class="headerlink" title="Computing the output of the neural network (Feedforward)"></a>Computing the output of the neural network (Feedforward)</h2><p>In order to figure out the output of the neural network, let’s make some denotation.<br>Input: $x_1, x_2, x_3$. weight: $[w_1^{[1]},w_2^{[1]},w_3^{[1]},…,w_3^{[4]}$. Therefore we have:<br>$$<br>z=w^Tx+b<br>$$where term “b” is bias term. For example,we can obtain: $z_1^{[1]}=w_1^{[1]T}x+b$. And so on and so forth.<br>$$<br>z_2^{[1]}=w_2^{[1]T}x+b\\<br>z_3^{[1]}=w_3^{[1]T}x+b\\<br>z_4^{[1]}=w_4^{[1]T}x+b<br>$$<br>and then pass through the non-linear function “sigmoid function”:<br>$$a_1^{[1]}=\sigma(z_1^{[1]})\\<br>a_2^{[1]}=\sigma(z_2^{[1]})\\<br>a_3^{[1]}=\sigma(z_3^{[1]})\\<br>a_4^{[1]}=\sigma(z_4^{[1]})<br>$$<br>and then multiply the weight agian and pass through the sigmoid function:<br>$$<br>z_1^{[2]}=w_1^{[2]T}a^{[1]}+b\\<br>a_1^{[2]}=\sigma(z_1^{[2]})<br>$$<br>Therefore, $ \hat{y}= \ a_1^{[2]} $ in this case.</p>
+<h2 id="Activation-function"><a href="#Activation-function" class="headerlink" title="Activation function"></a>Activation function</h2><p>What we use above is so-called activation functions. If there is no activation function in neural network, the output of the model is only the linear combination with input features x. Therefore, we can not use any linear activation function among hidden layers, but can use the linear activation in the output layer, which is the special case.<br>There are severl common used activation function, like “sigmoid”, “tanh”, “Relu”, and “leaky Relu”.</p>
+<div align="center"><img src="/2019/07/13/Shallow-Neural-Network/activation.jpg"></div><br>
+
+
+
+<ul>
+<li>sigmoid:<br>$$<br>a=\sigma(z)=\frac{1}{1+e^{-z}}\\<br>\frac{d}{dz}\sigma(z)=\sigma(z)(1-\sigma(z))<br>$$</li>
+<li>tanh:<br>$$<br>a=tanh(z)=\frac{e^z-e^{-z}}{e^z+e^{-z}}\\<br>\frac{d}{dz}tanh(z)=1-(tanh(z))^2<br>$$</li>
+<li>Relu:<br>$$<br>a=max(0,z)$$</li>
+</ul>
+<div align="center"><img src="/2019/07/13/Shallow-Neural-Network/Relu.jpg"></div><br>
+
+<ul>
+<li>leaky Relu<br>$$<br>a=max(0.01z,z)$$</li>
+</ul>
+<div align="center"><img src="/2019/07/13/Shallow-Neural-Network/Leaky Relu.jpg"></div><br>
+
+
+<p>The common disadvantage of sigmoid and tanh is that when the case where $z$ is too large or too small happens, the derivative of the function will be enormously small, even approximate to zero, which will decrease the speed of gradient descent. Alternatively, the  activation function “Relu” is also a popular choice in machine learning. The advantage of “Relu” is that the derivative is zero when the z is negative number. As for “Leaky Relu”, when z is negative number, the magnitude of this function is not equal to zero, rather slightly incline.<br>The experience to select the activation function:</p>
+<ul>
+<li>sigmoid: output is the binary classification</li>
+<li>tanh: almost suitable for most situation</li>
+<li>Relu: the most common defaut activation function</li>
+</ul>
+<h2 id="Backpropagation"><a href="#Backpropagation" class="headerlink" title="Backpropagation"></a>Backpropagation</h2>
       
 
       
@@ -243,7 +256,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Computer Vision</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">deep learning</a>
         		</li>
       		
 		</ul>
@@ -299,7 +312,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/12/Change-detection-using-GMM/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/13/Shallow-Neural-Network/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -313,18 +326,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/07/13/Shallow-Neural-Network/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Shallow-Neural-Network
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/07/11/FriutDetectionTrackingandCounting/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Friut Detection, Tracking and Counting</div>
+    <a href="/2019/07/12/Change-detection-using-GMM/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Change-detection-using-GMM</div>
       <i class="icon-circle-right"></i>
     </a>
   
