@@ -8,15 +8,20 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>ElasticFusion | Homepage</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="Computer Vision">
+  <meta name="description" content="OverviewDemonstrating a novel method to real-time dense visual SLAM, this paper summaries that the system is able to capture comprehensive dense globally consistent surfel-based maps of room scale env">
+<meta name="keywords" content="Computer Vision">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ElasticFusion">
 <meta property="og:url" content="http://yoursite.com/2019/07/13/ElasticFusion/index.html">
 <meta property="og:site_name" content="Homepage">
+<meta property="og:description" content="OverviewDemonstrating a novel method to real-time dense visual SLAM, this paper summaries that the system is able to capture comprehensive dense globally consistent surfel-based maps of room scale env">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-13T16:45:39.635Z">
+<meta property="og:image" content="http://yoursite.com/2019/07/13/ElasticFusion/result.jpg">
+<meta property="og:updated_time" content="2019-07-14T10:58:37.692Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ElasticFusion">
+<meta name="twitter:description" content="OverviewDemonstrating a novel method to real-time dense visual SLAM, this paper summaries that the system is able to capture comprehensive dense globally consistent surfel-based maps of room scale env">
+<meta name="twitter:image" content="http://yoursite.com/2019/07/13/ElasticFusion/result.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Homepage" type="application/atom+xml">
   
@@ -174,7 +179,21 @@
 	    
 
 			
-				
+				<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Demonstrating a novel method to real-time dense visual SLAM, this paper summaries that the system is able to capture comprehensive dense globally consistent surfel-based maps of room scale environments and beyond explored using and RGB-D camera in an incremental online fashion, without pose graph optimisation or any post-processing steps. The method they used is applying local model-to-model surface loop closure optimisations as often as possible to stay closure to the mode of the map distribution, while utilising global loop closure to recover from arbitrary drift and maintain global consistency. <a id="more"></a>In the spirit of improving map quality as well as tracking accuracy and robustness, they furthermore explore a novel approach to real-time discrete light source detection, which is capable of detecting numerous light sources in indoor environments in realtime as a user handheld camera explores the scene. The results present that techniques they proposed function well in many different environments and lighting configurations and also enable more realistic augmented reality (AR) rendering, a richer understanding of the scene beyond pure geometry and more accurate and robust photometric tracking</p>
+<p>Original Repo: <a href="https://github.com/mp3guy/ElasticFusion" target="_blank" rel="noopener">https://github.com/mp3guy/ElasticFusion</a></p>
+<h2 id="Objective"><a href="#Objective" class="headerlink" title="Objective:"></a>Objective:</h2><p>This project aims to move away from the focus on pose graphs originally grounded in sparse methods and move towards a more map-centric approach that more elegantly fits the modelpredictive characteristics of a typical dense frontend</p>
+<h2 id="Step"><a href="#Step" class="headerlink" title="Step"></a>Step</h2><p>This section will describe how to carry out ElasticFusion on ubuntu 16.04 with a Kinect sensor.<br>The major source code is from: <a href="https://github.com/mp3guy/ElasticFusion" target="_blank" rel="noopener">https://github.com/mp3guy/ElasticFusion</a>. There is a file named build.sh, which can automatically install all kinds of dependences, but I am going to refer to this file and manually install all the dependences step by step as follow:<br>1) Installing CUDA 8.0<br>2) Installing all dependences<br>3) Installing Pangolin<br>4) Installing OpenNI24.<br>  From the official website to download the ZIP file and finding the install.sh and then executing $sudo ./install.sh Note: executing “cat OpenNIDevEnvironment&gt;&gt; ~/.bashrc” after installing OpenNI2 so that the directory of Include and Redist can be added in environment variables.</p>
+<p>5) Build ElasticFusion</p>
+<p>So far, we have already installed all the dependences that authors mention. However, what the tricky things are OPENNI2 used in this project does not support the Kinect V1. Therefore, after installation, executing “./ElasticFusion -l dyson_lab.klg”, where “dyson_lab.klg” is a provided package from authors, there is an error saying that: Creating live capture… failed! DeviceOpen using default: no devices found.</p>
+<p>So, what I did is to download the third-party library named libFreenect from <a href="https://github.com/OpenKinect/libfreenect" target="_blank" rel="noopener">https://github.com/OpenKinect/libfreenect</a>. build this file and executing “cmake .. -DBUILD_OPENNI2_DRIVER=ON”. After that, copy the .so files which are all in the “libfreenect/lib/OpenNI2-FreenectDriver” to “OpenNI2/Bin/x64-Release/OpenNI2/Drivers”. You can executing “./NiViewer” to check if successfully install the driver.” But right now, do not forget to manually tell Cmake where OPENNI2. Therefore, open the CmakeList.txt file in src of GUI of ElasticFusion. Adding “set(OPENNI2_INCLUDE_DIR “ home/turtlebot/OpenNI2/Include”)” into this file and make again.<br>Currently, we have already installed all the dependences environments for ElasticFusion. The next step is to excute “. ElasticFusion -l dyson_lab.klg” and then you can see the visual window for mapping and constructing. You can provide a .klg log file with the -l parameter. You can capture .klg format logs using Logger1 from <a href="https://github.com/mp3guy/Logger1" target="_blank" rel="noopener">https://github.com/mp3guy/Logger1</a>.</p>
+<h2 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h2><div align="center"><img src="/2019/07/13/ElasticFusion/result.jpg"></div><br>
+As can been seen in the left most picture, the mapping is continuous, and the new mapping is aligned with the current one, which shown in different color. The middle figure shown in Figure 3 is doing the local loop closure that ensuring local surface consistency throughout the map the system closes many small loops with the existing map as those areas are revisited. However, while doing the global loop closure, this design does not perform well shown in the right most picture of the Figure 3. The objects lose in the mapping and is mixed into others plane.
+
+
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>1) This work is based on RGB-D dense three-dimensional reconstruction with mesh model commonly using fuse point cloud. ElasticFusion is one of the few that is represented by surfel model.<br>2) Traditional SLAM algorithm generally improves the accuracy of trajectory estimation or reconstruction by continuously optimizing camera trajectory or feature points. This paper adopts the method of continuously optimizing reconstructed map to improve the accuracy of reconstruction and pose estimation.<br>3) The optimization takes the form of deformation graph.<br>4) Reposition algorithm is integrated (re-calculate the camera pose when the camera is lost).<br>5) The algorithm updates, merges, displays and projects the point cloud using OpenGL.<br>6) The algorithm integrates RGB images by colour consistency constraint and point cloud by ICP algorithm to estimate the pose.<br>7) It is suitable for the reconstruction of room-size scenarios. The code is not optimized and cannot be applied when the larger scene is reconstructed, which means that this approach needs to address the problem of map scalability beyond whole rooms and put emphasis on the problem of dense globally consistent SLAM as t→∞.</p>
+<p>More ElasticFusion or details of this project, please look through the project report.</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] ElasticFusion: Real-Time Dense SLAM and Light Source Estimation, T. Whelan, R. F. Salas-Moreno, B. Glocker, A. J. Davison and S. Leutenegger, IJRR ‘16<br>[2] ElasticFusion: Dense SLAM Without A Pose Graph, T. Whelan, S. Leutenegger, R. F. Salas-Moreno, B. Glocker and A. J. Davison, RSS ‘15<br>[3] Xingyin-Fu, <a href="https://blog.csdn.net/fuxingyin/article/details/51433793" target="_blank" rel="noopener">https://blog.csdn.net/fuxingyin/article/details/51433793</a><br>[4] mp3guy, <a href="https://github.com/mp3guy/ElasticFusion" target="_blank" rel="noopener">https://github.com/mp3guy/ElasticFusion</a></p>
+
 			
 		
     </div>
