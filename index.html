@@ -169,22 +169,7 @@
 	    
 
 					<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Neural Style Transfer (NST) refers to a class of software algorithms that manipulate digital images, or videos, to adopt the appearance or visual style of another image. NST algorithms are characterized by their use of deep neural networks in order to perform the image transformation. Common uses for NST are the creation of artificial artwork from photographs, for example by transferring the appearance of famous paintings to user supplied photographs. [1] In this project, we are going to implement this algorithm and it is also the assignment in the deep learning AI course delivered by Andrew Ng [2].</p>
-<p>Repo:</p>
-<h2 id="Objective"><a href="#Objective" class="headerlink" title="Objective"></a>Objective</h2><p>In this example, we are going to generate an image of the Louvre museum in Paris (content image C), mixed with a painting by Claude Monet, a leader of the impressionist movement (style image S) [2]. This is an expected result of our implementataion.</p>
-<div align="center"><img src="/2019/07/16/Style-Transfer/objective.jpg"></div><br>
-
-<h2 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h2><p>For any neural model, it definitely has the cost function. Therefore, we define the cost function at the begining.</p>
-<h3 id="Cost-function"><a href="#Cost-function" class="headerlink" title="Cost function"></a>Cost function</h3><p>We have two main parts of the cost function[3]:</p>
-<ul>
-<li>$J_{content}(C,G)$: this one is so-called content cost, which is related to the originial image(content image) and the generated image and is used to measure the similarity between the generated image and the content image.</li>
-<li>$J_{style}(S,G)$: this one is named as style cost, realting to the style image and the generated image, which is target to value the similarity between the style image and the generated image.</li>
-</ul>
-<p>And then finally we put them together, so that we have:<br>$$J(G)=\alpha J_{content}(C,G) + \beta J_{content}(S,G)$$<br>$\alpha$ and $\beta$ are the hyperparameters.</p>
-<p>In order to generate a new image, we firstly need to randomly inital an image $G$ and then using gradient descent to reduce above cost function so that we can updating the<br>$$<br>G := G-\frac{\alpha}{\alpha G}J(G)<br>$$<br>This step is acutally updating values of image G, rather than the weight by convention in classification we did before. So the above is an abstract of neural style transfer. Now we dive more into the cost function and elaborate the hidden principle.</p>
-<h4 id="Content-cost-function"><a href="#Content-cost-function" class="headerlink" title="Content cost function"></a>Content cost function</h4><p>Now we want to test the similarity between the content image and the generated image. To achieve that, we suppose we have two activation values:$a^{[l][C]}$ and $a^{[l][G]}$. We would say if these two values are close to each other, then the image is similar to each other. So we define:<br>$$<br>J_{content}=\frac{1}{2}||a^{[l][C]}-a^{[l][G]}||^2<br>$$<br>It means that L2 norm of the difference of the values of particular $l$ layer of different images can represent the content similarity of two images.</p>
-<h4 id="Style-cost-function"><a href="#Style-cost-function" class="headerlink" title="Style cost function"></a>Style cost function</h4><p>Gram matrix (style matrix):<br>$$<br>G_{kk^{‘}}^{[l][G]}=\sum_{i=1}^{n_H^{[l]}}\sum_{j=1}^{n_W^{[l]}}a_{i,j,k}^{[l][G]}a_{i,j,k^{‘}}^{[l][G]}<br>$$</p>
-<p>$$<br>J_{style}(S,G)=\frac{1}{(2*n_H^l n_W^l n_c^l)^2}\sum_k \sum_{k^{‘}}(G_{kk^{‘}}^{[l][S]}-G_{kk^{‘}}^{[l][G]})<br>$$</p>
-<h3 id="Pre-trained-neural-networks"><a href="#Pre-trained-neural-networks" class="headerlink" title="Pre-trained neural networks"></a>Pre-trained neural networks</h3><p>It is known that CNN can capture the high level feature of images. In the cost function, we utilize particular layer to compute the cost function. However, pratically if $l$ is small, for example, 1, then the generated image will be quite similar to your content image, but if it is too high, then the generated image will lose something contour or some interesting things of the content image.</p>
+<p>Repo: <a href="https://github.com/TianchaoHuo/neural-style-transfer" target="_blank" rel="noopener">https://github.com/TianchaoHuo/neural-style-transfer</a></p>
 			
 		
     </div>
