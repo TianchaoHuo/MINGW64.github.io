@@ -6,15 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | Homepage</title>
+  <title>Style-Transfer | Homepage</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Homepage">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+  <meta name="description" content="OverviewNeural Style Transfer (NST) refers to a class of software algorithms that manipulate digital images, or videos, to adopt the appearance or visual style of another image. NST algorithms are cha">
+<meta name="keywords" content="Deep Learning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Style-Transfer">
+<meta property="og:url" content="http://yoursite.com/2019/07/16/Style-Transfer/index.html">
 <meta property="og:site_name" content="Homepage">
+<meta property="og:description" content="OverviewNeural Style Transfer (NST) refers to a class of software algorithms that manipulate digital images, or videos, to adopt the appearance or visual style of another image. NST algorithms are cha">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/07/16/Style-Transfer/objective.jpg">
+<meta property="og:image" content="https://www.researchgate.net/profile/Clifford_Yang/publication/325137356/figure/fig2/AS:670371271413777@1536840374533/llustration-of-the-network-architecture-of-VGG-19-model-conv-means-convolution-FC-means.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/07/16/Style-Transfer/style.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/07/16/Style-Transfer/test2.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/07/16/Style-Transfer/generated_image.jpg">
+<meta property="og:updated_time" content="2019-07-16T11:06:02.006Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Homepage">
+<meta name="twitter:title" content="Style-Transfer">
+<meta name="twitter:description" content="OverviewNeural Style Transfer (NST) refers to a class of software algorithms that manipulate digital images, or videos, to adopt the appearance or visual style of another image. NST algorithms are cha">
+<meta name="twitter:image" content="http://yoursite.com/2019/07/16/Style-Transfer/objective.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Homepage" type="application/atom+xml">
   
@@ -144,37 +155,67 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Style-Transfer" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/07/16/Style-Transfer/" class="archive-article-date">
-  	<time datetime="2019-07-16T07:50:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-16</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/16/Style-Transfer/">Style-Transfer</a>
+    <h1 class="article-title" itemprop="name">
+      Style-Transfer
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        
+        <!-- 不蒜子统计 -->
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2019/07/16/Style-Transfer/" class="archive-article-date">
+  	<time datetime="2019-07-16T07:50:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	    
+
+			
+				<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Neural Style Transfer (NST) refers to a class of software algorithms that manipulate digital images, or videos, to adopt the appearance or visual style of another image. NST algorithms are characterized by their use of deep neural networks in order to perform the image transformation. Common uses for NST are the creation of artificial artwork from photographs, for example by transferring the appearance of famous paintings to user supplied photographs. [1] In this project, we are going to implement this algorithm and it is also the assignment in the deep learning AI course delivered by Andrew Ng [2].</p>
+<p>Repo:</p>
+<h2 id="Objective"><a href="#Objective" class="headerlink" title="Objective"></a>Objective</h2><p>In this example, we are going to generate an image of the Louvre museum in Paris (content image C), mixed with a painting by Claude Monet, a leader of the impressionist movement (style image S) [2]. This is an expected result of our implementataion.</p>
+<div align="center"><img src="/2019/07/16/Style-Transfer/objective.jpg"></div><br>
+
+<h2 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h2><p>For any neural model, it definitely has the cost function. Therefore, we define the cost function at the begining.</p>
+<h3 id="Cost-function"><a href="#Cost-function" class="headerlink" title="Cost function"></a>Cost function</h3><p>We have two main parts of the cost function[3]:</p>
+<ul>
+<li>$J_{content}(C,G)$: this one is so-called content cost, which is related to the originial image(content image) and the generated image and is used to measure the similarity between the generated image and the content image.</li>
+<li>$J_{style}(S,G)$: this one is named as style cost, realting to the style image and the generated image, which is target to value the similarity between the style image and the generated image.</li>
+</ul>
+<p>And then finally we put them together, so that we have:<br>$$J(G)=\alpha J_{content}(C,G) + \beta J_{content}(S,G)$$<br>$\alpha$ and $\beta$ are the hyperparameters.</p>
+<p>In order to generate a new image, we firstly need to randomly inital an image $G$ and then using gradient descent to reduce above cost function so that we can updating the<br>$$<br>G := G-\frac{\alpha}{\alpha G}J(G)<br>$$<br>This step is acutally updating values of image G, rather than the weight by convention in classification we did before. So the above is an abstract of neural style transfer. Now we dive more into the cost function and elaborate the hidden principle.</p>
+<h4 id="Content-cost-function"><a href="#Content-cost-function" class="headerlink" title="Content cost function"></a>Content cost function</h4><p>Now we want to test the similarity between the content image and the generated image. To achieve that, we suppose we have two activation values:$a^{[l][C]}$ and $a^{[l][G]}$. We would say if these two values are close to each other, then the image is similar to each other. So we define:<br>$$<br>J_{content}=\frac{1}{2}||a^{[l][C]}-a^{[l][G]}||^2<br>$$<br>It means that L2 norm of the difference of the values of particular $l$ layer of different images can represent the content similarity of two images.</p>
+<h4 id="Style-cost-function"><a href="#Style-cost-function" class="headerlink" title="Style cost function"></a>Style cost function</h4><p>$$<br>J_{style}(S,G)=\frac{1}{(2*n_H^l n_W^l n_c^l)^2}\sum_k \sum_{k^{‘}}(G_{kk^{‘}}^{[l][S]}-G_{kk^{‘}}^{[l][G]})<br>$$</p>
+<h3 id="Pre-trained-neural-networks"><a href="#Pre-trained-neural-networks" class="headerlink" title="Pre-trained neural networks"></a>Pre-trained neural networks</h3><p>It is known that CNN can capture the high level feature of images. In the cost function, we utilize particular layer to compute the cost function. However, pratically if $l$ is small, for example, 1, then the generated image will be quite similar to your content image, but if it is too high, then the generated image will lose something contour or some interesting things of the content image. Hence, we usually selet a middel layer, rather than a too small or too deep layer. And then we also take advantage of the pre-trained neural network to implement the neural style transfer algorithm and VGG-19 neural network is used in this project. You can download the pre-trained neural model in: <a href="http://www.vlfeat.org/matconvnet/pretrained/" target="_blank" rel="noopener">http://www.vlfeat.org/matconvnet/pretrained/</a>. And the following figure is the architecture of the VGG-19 neural network [4].</p>
+<div align="center"><img src="https://www.researchgate.net/profile/Clifford_Yang/publication/325137356/figure/fig2/AS:670371271413777@1536840374533/llustration-of-the-network-architecture-of-VGG-19-model-conv-means-convolution-FC-means.jpg"></div>
+
+
+<h2 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h2><div align="left"><img width="245," height="178," src="/2019/07/16/Style-Transfer/style.jpg"> <img width="255," height="178," src="/2019/07/16/Style-Transfer/test2.jpg"> <img width="255," height="178," src="/2019/07/16/Style-Transfer/generated_image.jpg">
+The left-most image is the style image: The Starry Night, from Van Gogh. And the middel one is "zhuhai" from [5]. The right-most one is the generated artical image from our nerual style transfer algorithm.
+
+
+
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>This artical simply introduce the neural style transfer. We can learn that instead of updating the weight of the nerual network, it is target to update the values of the image while gradient descenting which is the same principle to minimize the cost function we defined above. In practica, the pre-trained nerual network is usually utilized to implement this project. The future work is to implement this algorithm in videos.</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p>[1] Neural style transfer, <a href="https://en.wikipedia.org/wiki/Neural_Style_Transfer" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Neural_Style_Transfer</a><br>[2] Andrew Ng, <a href="https://mooc.study.163.com/term/2001392030.htm" target="_blank" rel="noopener">https://mooc.study.163.com/term/2001392030.htm</a><br>[3] L. Gatys, A. Ecker and M. Bethge, “A Neural Algorithm of Artistic Style,” Journal of Vision, vol. 16, (12), pp. 326, 2016.<br>[4] VGG-19, <a href="https://www.researchgate.net/figure/llustration-of-the-network-architecture-of-VGG-19-model-conv-means-convolution-FC-means_fig2_325137356" target="_blank" rel="noopener">https://www.researchgate.net/figure/llustration-of-the-network-architecture-of-VGG-19-model-conv-means-convolution-FC-means_fig2_325137356</a><br>[5] zhuhai, <a href="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1563285220753&amp;di=bac7ad611650d54e5467b69c5db89a40&amp;imgtype=0&amp;src=http%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F4oialo8ibP6okPtUN4Jj4DQFm8xenjibPHtYv6wVFaRicqorp3ticzqYShD64ibbIOBVuRdMzU3OnGMlgVLI89AXpHFA%2F640%3Fwx_fmt%3Djpeg" target="_blank" rel="noopener">https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1563285220753&amp;di=bac7ad611650d54e5467b69c5db89a40&amp;imgtype=0&amp;src=http%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2F4oialo8ibP6okPtUN4Jj4DQFm8xenjibPHtYv6wVFaRicqorp3ticzqYShD64ibbIOBVuRdMzU3OnGMlgVLI89AXpHFA%2F640%3Fwx_fmt%3Djpeg</a></p>
+</div>
+			
+		
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -186,7 +227,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -199,323 +240,137 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/16/Style-Transfer/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/07/13/ElasticFusion/" class="archive-article-date">
-  	<time datetime="2019-07-13T12:15:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-13</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/07/13/ElasticFusion/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ElasticFusion</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/13/ElasticFusion/">ElasticFusion</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Computer Vision</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Computer-Vision//" class="article-tag-list-link color1">Computer Vision</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Overview"><span class="toc-number">1.</span> <span class="toc-text">Overview</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Objective"><span class="toc-number">2.</span> <span class="toc-text">Objective</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Methodology"><span class="toc-number">3.</span> <span class="toc-text">Methodology</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cost-function"><span class="toc-number">3.1.</span> <span class="toc-text">Cost function</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Content-cost-function"><span class="toc-number">3.1.1.</span> <span class="toc-text">Content cost function</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Style-cost-function"><span class="toc-number">3.1.2.</span> <span class="toc-text">Style cost function</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pre-trained-neural-networks"><span class="toc-number">3.2.</span> <span class="toc-text">Pre-trained neural networks</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Result"><span class="toc-number">4.</span> <span class="toc-text">Result</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-number">5.</span> <span class="toc-text">Conclusion</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-number">6.</span> <span class="toc-text">References</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/07/13/Shallow-Neural-Network/" class="archive-article-date">
-  	<time datetime="2019-07-13T07:31:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/13/Shallow-Neural-Network/">Shallow-Neural-Network</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Deep Learning</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Deep-Learning//" class="article-tag-list-link color4">Deep Learning</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/07/12/Change-detection-using-GMM/" class="archive-article-date">
-  	<time datetime="2019-07-12T12:23:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-12</time>
-</a>
-        </div>
-    	 
+     <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80NTIyNC8yMTczOQ==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/12/Change-detection-using-GMM/">Change-detection-using-GMM</a>
-    </h1>
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Computer Vision</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Computer-Vision//" class="article-tag-list-link color1">Computer Vision</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/07/11/FriutDetectionTrackingandCounting/" class="archive-article-date">
-  	<time datetime="2019-07-11T13:29:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/11/FriutDetectionTrackingandCounting/">Friut Detection, Tracking and Counting</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Computer Vision</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Computer-Vision//" class="article-tag-list-link color1">Computer Vision</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/07/11/Linear-Regression/" class="archive-article-date">
-  	<time datetime="2019-07-11T11:59:55.577Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/11/Linear-Regression/">Linear Regression</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Machine Learning</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Machine-Learning//" class="article-tag-list-link color2">Machine Learning</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/07/10/my-first-post/" class="archive-article-date">
-  	<time datetime="2019-07-09T15:51:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/10/my-first-post/">My First Post</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/07/10/hello-world/" class="archive-article-date">
-  	<time datetime="2019-07-09T15:47:21.479Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/10/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -550,8 +405,8 @@
 	var yiliaConfig = {
 		mathjax: [object Object],
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
