@@ -25,7 +25,12 @@
 <meta property="og:image" content="http://yoursite.com/2019/07/17/Autonomous-driving-application-using-YOLO/IOU1.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/07/17/Autonomous-driving-application-using-YOLO/IOU2.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/07/17/Autonomous-driving-application-using-YOLO/IOU3.jpg">
-<meta property="og:updated_time" content="2019-07-19T05:36:35.482Z">
+<meta property="og:image" content="http://yoursite.com/2019/07/17/Autonomous-driving-application-using-YOLO/NON-MAX.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/07/17/Autonomous-driving-application-using-YOLO/nms.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/07/17/Autonomous-driving-application-using-YOLO/nms1.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/07/17/Autonomous-driving-application-using-YOLO/nms2.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/07/17/Autonomous-driving-application-using-YOLO/anchor%20box.jpg">
+<meta property="og:updated_time" content="2019-07-19T12:00:39.280Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Autonomous driving application using YOLO">
 <meta name="twitter:description" content="OverviewThis assignment is to work out a system detecting cars in a video. To collect data, you can mount a camera to the hood(meaning the front) of the car, which takes pictures of the road every few">
@@ -187,9 +192,7 @@
 	    
 
 			
-				<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>This assignment is to work out a system detecting cars in a video. To collect data, you can mount a camera to the hood(meaning the front) of the car, which takes pictures of the road every few seconds while you drive around. After gathering all these images in to a folder, we label them by drawing bounding boxes around every car we found. In this project, we use the data from <a href="https://www.drive.ai/" target="_blank" rel="noopener">drive.ai</a>.</p>
-<a id="more"></a>
-
+				<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>This assignment is to work out a system detecting cars in a video. To collect data, you can mount a camera to the hood(meaning the front) of the car, which takes pictures of the road every few seconds while you drive around. After gathering all these images in to a folder, we label them by drawing bounding boxes around every car we found. In this project, we use the data from <a href="https://www.drive.ai/" target="_blank" rel="noopener">drive.ai</a>.<br><a id="more"></a></p>
 <h2 id="objective"><a href="#objective" class="headerlink" title="objective"></a>objective</h2><p>We are target to detect the cars and build up bounding boxes for them. The bounding box should like as:</p>
 <div align="center"><img src="/2019/07/17/Autonomous-driving-application-using-YOLO/definition of a box.jpg"></div>
 
@@ -226,7 +229,21 @@
 <div align="center"><img src="/2019/07/17/Autonomous-driving-application-using-YOLO/IOU3.jpg"></div>  
 
 <p>Generally we would say the detection is correct if $Iou &gt; 0.5$ or alternatively you might choose $Iou &gt; 0.6$ is OK.<br>Next, I waner introduce the non-max suppression algorithm.</p>
-<h3 id="non-max-suppression-algorithm"><a href="#non-max-suppression-algorithm" class="headerlink" title="non-max suppression algorithm"></a>non-max suppression algorithm</h3>
+<h3 id="non-max-suppression-algorithm"><a href="#non-max-suppression-algorithm" class="headerlink" title="non-max suppression algorithm"></a>non-max suppression algorithm</h3><p>The algorithm may detect the same object multiple times.Non-maximum suppression is a way to make sure that your algorithm only detects each object once. Let’s do an example.</p>
+<div align="center"><img src="/2019/07/17/Autonomous-driving-application-using-YOLO/NON-MAX.jpg"></div>  
+It firstly selects the bounding box with the highest probability, in this case in 0.9 which is the most reliable detection, and then we highlite this bounding box. Next we compute the Iou between this highlited bounding box and the remaining bounding boxes  in sequence. By setting a threshold value for Iou, all the bounding boxes will be supressed if it has high Iou with the highlited bounding box. And then, the left bounding boxes will be assessed one by one to find the highest probability, in this case in 0.8. So that we can detect another car on the left and then do the non-max suppression algorithm again to omit the high Iou bounding boxes. Therefore, we can obtain the final result. This is basic concept of the non-max supression algorithm.
+
+The following figure is to detail the algorithm:
+<div align="center"><img src="/2019/07/17/Autonomous-driving-application-using-YOLO/nms.jpg"></div>  
+<div align="center"><img src="/2019/07/17/Autonomous-driving-application-using-YOLO/nms1.jpg"></div>  
+<div align="right"><img src="/2019/07/17/Autonomous-driving-application-using-YOLO/nms2.jpg"></div>
+
+
+
+<h3 id="anchor-box"><a href="#anchor-box" class="headerlink" title="anchor box"></a>anchor box</h3><p>One of the problems with object detection so far is that each grid can only detect one object and if you want to one grid detects multiple objects, you can do this by using the concept of anchor box.</p>
+<p><div align="center"><img src="/2019/07/17/Autonomous-driving-application-using-YOLO/anchor box.jpg"></div><br>You can enlarge the vector to fill the different object parameters with anchor box. For example, the first 8 parameters of y vector is for the anchor box1, which is denoting the humanbeing and the remaining 8 parameters is denoting the car, which is also anchor box2. Now each object is assigned to the same grid as before. People would arbitrarily select the shape of anchor box and you can choose five to ten shapes of anchor box.</p>
+<h2 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h2><p>Basically I waner give some general workflow of this system.</p>
+
 			
 		
     </div>
@@ -356,7 +373,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Overview"><span class="toc-number">1.</span> <span class="toc-text">Overview</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#objective"><span class="toc-number">2.</span> <span class="toc-text">objective</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dataset"><span class="toc-number">3.</span> <span class="toc-text">dataset</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Methodology"><span class="toc-number">4.</span> <span class="toc-text">Methodology</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sliding-windows"><span class="toc-number">4.1.</span> <span class="toc-text">sliding windows</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#convolutional-implementation-of-sliding-windows"><span class="toc-number">5.</span> <span class="toc-text">convolutional implementation of sliding windows</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Bounding-box-predictions"><span class="toc-number">5.1.</span> <span class="toc-text">Bounding box predictions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Intersection-over-union-Iou"><span class="toc-number">5.2.</span> <span class="toc-text">Intersection over union (Iou)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#non-max-suppression-algorithm"><span class="toc-number">5.3.</span> <span class="toc-text">non-max suppression algorithm</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Overview"><span class="toc-number">1.</span> <span class="toc-text">Overview</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#objective"><span class="toc-number">2.</span> <span class="toc-text">objective</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dataset"><span class="toc-number">3.</span> <span class="toc-text">dataset</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Methodology"><span class="toc-number">4.</span> <span class="toc-text">Methodology</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sliding-windows"><span class="toc-number">4.1.</span> <span class="toc-text">sliding windows</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#convolutional-implementation-of-sliding-windows"><span class="toc-number">5.</span> <span class="toc-text">convolutional implementation of sliding windows</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Bounding-box-predictions"><span class="toc-number">5.1.</span> <span class="toc-text">Bounding box predictions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Intersection-over-union-Iou"><span class="toc-number">5.2.</span> <span class="toc-text">Intersection over union (Iou)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#non-max-suppression-algorithm"><span class="toc-number">5.3.</span> <span class="toc-text">non-max suppression algorithm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#anchor-box"><span class="toc-number">5.4.</span> <span class="toc-text">anchor box</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Implementation"><span class="toc-number">6.</span> <span class="toc-text">Implementation</span></a></li></ol>
                     </div>
                 </span>
             </div>
