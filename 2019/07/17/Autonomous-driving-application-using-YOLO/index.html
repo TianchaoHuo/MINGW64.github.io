@@ -30,7 +30,9 @@
 <meta property="og:image" content="http://yoursite.com/2019/07/17/Autonomous-driving-application-using-YOLO/nms1.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/07/17/Autonomous-driving-application-using-YOLO/nms2.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/07/17/Autonomous-driving-application-using-YOLO/anchor%20box.jpg">
-<meta property="og:updated_time" content="2019-07-19T12:00:39.280Z">
+<meta property="og:image" content="http://yoursite.com/2019/07/17/Autonomous-driving-application-using-YOLO/test.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/07/17/Autonomous-driving-application-using-YOLO/test_result.jpg">
+<meta property="og:updated_time" content="2019-07-19T14:03:45.890Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Autonomous driving application using YOLO">
 <meta name="twitter:description" content="OverviewThis assignment is to work out a system detecting cars in a video. To collect data, you can mount a camera to the hood(meaning the front) of the car, which takes pictures of the road every few">
@@ -192,7 +194,9 @@
 	    
 
 			
-				<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>This assignment is to work out a system detecting cars in a video. To collect data, you can mount a camera to the hood(meaning the front) of the car, which takes pictures of the road every few seconds while you drive around. After gathering all these images in to a folder, we label them by drawing bounding boxes around every car we found. In this project, we use the data from <a href="https://www.drive.ai/" target="_blank" rel="noopener">drive.ai</a>.<br><a id="more"></a></p>
+				<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>This assignment is to work out a system detecting cars in a video. To collect data, you can mount a camera to the hood(meaning the front) of the car, which takes pictures of the road every few seconds while you drive around. After gathering all these images in to a folder, we label them by drawing bounding boxes around every car we found. In this project, we use the data from <a href="https://www.drive.ai/" target="_blank" rel="noopener">drive.ai</a>.</p>
+<a id="more"></a>
+
 <h2 id="objective"><a href="#objective" class="headerlink" title="objective"></a>objective</h2><p>We are target to detect the cars and build up bounding boxes for them. The bounding box should like as:</p>
 <div align="center"><img src="/2019/07/17/Autonomous-driving-application-using-YOLO/definition of a box.jpg"></div>
 
@@ -233,7 +237,7 @@
 <div align="center"><img src="/2019/07/17/Autonomous-driving-application-using-YOLO/NON-MAX.jpg"></div>  
 It firstly selects the bounding box with the highest probability, in this case in 0.9 which is the most reliable detection, and then we highlite this bounding box. Next we compute the Iou between this highlited bounding box and the remaining bounding boxes  in sequence. By setting a threshold value for Iou, all the bounding boxes will be supressed if it has high Iou with the highlited bounding box. And then, the left bounding boxes will be assessed one by one to find the highest probability, in this case in 0.8. So that we can detect another car on the left and then do the non-max suppression algorithm again to omit the high Iou bounding boxes. Therefore, we can obtain the final result. This is basic concept of the non-max supression algorithm.
 
-The following figure is to detail the algorithm:
+<p>The following figure is to detail the algorithm:</p>
 <div align="center"><img src="/2019/07/17/Autonomous-driving-application-using-YOLO/nms.jpg"></div>  
 <div align="center"><img src="/2019/07/17/Autonomous-driving-application-using-YOLO/nms1.jpg"></div>  
 <div align="right"><img src="/2019/07/17/Autonomous-driving-application-using-YOLO/nms2.jpg"></div>
@@ -241,8 +245,21 @@ The following figure is to detail the algorithm:
 
 
 <h3 id="anchor-box"><a href="#anchor-box" class="headerlink" title="anchor box"></a>anchor box</h3><p>One of the problems with object detection so far is that each grid can only detect one object and if you want to one grid detects multiple objects, you can do this by using the concept of anchor box.</p>
-<p><div align="center"><img src="/2019/07/17/Autonomous-driving-application-using-YOLO/anchor box.jpg"></div><br>You can enlarge the vector to fill the different object parameters with anchor box. For example, the first 8 parameters of y vector is for the anchor box1, which is denoting the humanbeing and the remaining 8 parameters is denoting the car, which is also anchor box2. Now each object is assigned to the same grid as before. People would arbitrarily select the shape of anchor box and you can choose five to ten shapes of anchor box.</p>
+<div align="center"><img src="/2019/07/17/Autonomous-driving-application-using-YOLO/anchor box.jpg"></div>
+You can enlarge the vector to fill the different object parameters with anchor box. For example, the first 8 parameters of y vector is for the anchor box1, which is denoting the humanbeing and the remaining 8 parameters is denoting the car, which is also anchor box2. Now each object is assigned to the same grid as before. People would arbitrarily select the shape of anchor box and you can choose five to ten shapes of anchor box.
+
+
+
 <h2 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h2><p>Basically I waner give some general workflow of this system.</p>
+<h2 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h2><p>We firstly and simply use one image to test the model as shown in the left below. And then the model will output the right below image drawing several bounding boxes and corresponding probability and classes.</p>
+<div><img width="350" height="230" src="/2019/07/17/Autonomous-driving-application-using-YOLO/test.jpg"><img width="350" height="230" align="right" src="/2019/07/17/Autonomous-driving-application-using-YOLO/test_result.jpg"></div><br><br>
+And the visual demo looks like:
+<br>
+
+<iframe width="700" height="500" src="//player.bilibili.com/player.html?aid=59559199&cid=103764069&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+
+
+<h2 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h2><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p>[1] Joseph Redmon, Santosh Divvala, Ross Girshick, Ali Farhadi - You Only Look Once: Unified, Real-Time Object Detection (2015)<br>[2] Joseph Redmon, Ali Farhadi - YOLO9000: Better, Faster, Stronger (2016)<br>[3] Allan Zelener - YAD2K: Yet Another Darknet 2 Keras<br>[4] The official YOLO website (<a href="https://pjreddie.com/darknet/yolo/" target="_blank" rel="noopener">https://pjreddie.com/darknet/yolo/</a>)<br>[5] How to build Yolo.h5, <a href="https://blog.csdn.net/Solo95/article/details/85262828" target="_blank" rel="noopener">https://blog.csdn.net/Solo95/article/details/85262828</a><br>[6] Andrew Ng, <a href="https://mooc.study.163.com/term/2001392030.htm" target="_blank" rel="noopener">https://mooc.study.163.com/term/2001392030.htm</a></p>
 
 			
 		
@@ -373,7 +390,7 @@ The following figure is to detail the algorithm:
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Overview"><span class="toc-number">1.</span> <span class="toc-text">Overview</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#objective"><span class="toc-number">2.</span> <span class="toc-text">objective</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dataset"><span class="toc-number">3.</span> <span class="toc-text">dataset</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Methodology"><span class="toc-number">4.</span> <span class="toc-text">Methodology</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sliding-windows"><span class="toc-number">4.1.</span> <span class="toc-text">sliding windows</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#convolutional-implementation-of-sliding-windows"><span class="toc-number">5.</span> <span class="toc-text">convolutional implementation of sliding windows</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Bounding-box-predictions"><span class="toc-number">5.1.</span> <span class="toc-text">Bounding box predictions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Intersection-over-union-Iou"><span class="toc-number">5.2.</span> <span class="toc-text">Intersection over union (Iou)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#non-max-suppression-algorithm"><span class="toc-number">5.3.</span> <span class="toc-text">non-max suppression algorithm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#anchor-box"><span class="toc-number">5.4.</span> <span class="toc-text">anchor box</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Implementation"><span class="toc-number">6.</span> <span class="toc-text">Implementation</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Overview"><span class="toc-number">1.</span> <span class="toc-text">Overview</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#objective"><span class="toc-number">2.</span> <span class="toc-text">objective</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dataset"><span class="toc-number">3.</span> <span class="toc-text">dataset</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Methodology"><span class="toc-number">4.</span> <span class="toc-text">Methodology</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sliding-windows"><span class="toc-number">4.1.</span> <span class="toc-text">sliding windows</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#convolutional-implementation-of-sliding-windows"><span class="toc-number">5.</span> <span class="toc-text">convolutional implementation of sliding windows</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Bounding-box-predictions"><span class="toc-number">5.1.</span> <span class="toc-text">Bounding box predictions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Intersection-over-union-Iou"><span class="toc-number">5.2.</span> <span class="toc-text">Intersection over union (Iou)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#non-max-suppression-algorithm"><span class="toc-number">5.3.</span> <span class="toc-text">non-max suppression algorithm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#anchor-box"><span class="toc-number">5.4.</span> <span class="toc-text">anchor box</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Implementation"><span class="toc-number">6.</span> <span class="toc-text">Implementation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Result"><span class="toc-number">7.</span> <span class="toc-text">Result</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusions"><span class="toc-number">8.</span> <span class="toc-text">Conclusions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-number">9.</span> <span class="toc-text">References</span></a></li></ol>
                     </div>
                 </span>
             </div>
