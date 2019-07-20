@@ -32,7 +32,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/07/17/Autonomous-driving-application-using-YOLO/anchor%20box.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/07/17/Autonomous-driving-application-using-YOLO/test.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/07/17/Autonomous-driving-application-using-YOLO/test_result.jpg">
-<meta property="og:updated_time" content="2019-07-20T03:45:27.607Z">
+<meta property="og:updated_time" content="2019-07-20T05:15:26.253Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Autonomous driving application using YOLO">
 <meta name="twitter:description" content="OverviewThis assignment is to work out a system detecting cars in a video. To collect data, you can mount a camera to the hood(meaning the front) of the car, which takes pictures of the road every few">
@@ -251,6 +251,30 @@ You can enlarge the vector to fill the different object parameters with anchor b
 
 
 <h2 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h2><p>Basically I waner give some general workflow of this system.</p>
+<ol>
+<li>Define anchor, classes, image shape. These come from “yolo_anchors.txt”, “coco_classes.txt” and the image shape is (720,1280).</li>
+<li>Loading the pre-trained model “Yolo.h5” file.</li>
+</ol>
+<ul>
+<li>We firstly download the “<a href="http://pjreddie.com/media/files/yolo.weights" target="_blank" rel="noopener">yolo.weights</a>“, and then “<a href="https://github.com/pjreddie/darknet/tree/master/cfg" target="_blank" rel="noopener">yolov2.cfg</a>“ and “<a href="https://github.com/allanzelener/YAD2K" target="_blank" rel="noopener">YAD2K</a>“.</li>
+<li>put “yolo.weights”, “yolo.cfg”(change name from yolov2.cfg to yolo.cfg) and “yad2k.py” into a floder and copy the model_data floader into this new floader.</li>
+<li>copy the yad2k floader in your download YAD2K-master into this new floader.</li>
+<li>avtivate your python environment that includes tensorflow</li>
+<li>excute “python yad2k.py yolo.cfg yolo.weights model_data/yolo.h5”<br>you can refer to this <a href="https://blog.csdn.net/Solo95/article/details/85262828" target="_blank" rel="noopener">blog</a>.</li>
+</ul>
+<ol start="3">
+<li>obtain the outputs from the pre-trained model Yolo</li>
+<li>predictions<ul>
+<li>feed input to Yolo model</li>
+<li>get the Yolo outputs</li>
+<li>yolo box to corners</li>
+<li>yolo filter boxes</li>
+<li>scale bboxes</li>
+<li>non-max-suppression</li>
+</ul>
+</li>
+</ol>
+<p><strong>Summary for YOLO</strong>: - Input image (608, 608, 3) - The input image goes through a CNN, resulting in a (19,19,5,85) dimensional output. - After flattening the last two dimensions, the output is a volume of shape (19, 19, 425): - Each cell in a 19x19 grid over the input image gives 425 numbers. - 425 = 5 x 85 because each cell contains predictions for 5 boxes, corresponding to 5 anchor boxes, as seen in lecture. - 85 = 5 + 80 where 5 is because  (𝑝𝑐,𝑏𝑥,𝑏𝑦,𝑏ℎ,𝑏𝑤)  has 5 numbers, and and 80 is the number of classes we’d like to detect - You then select only few boxes based on: - Score-thresholding: throw away boxes that have detected a class with a score less than the threshold - Non-max suppression: Compute the Intersection over Union and avoid selecting overlapping boxes - This gives you YOLO’s final output.</p>
 <h2 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h2><p>We firstly and simply use one image to test the model as shown in the left below. And then the model will output the right below image drawing several bounding boxes and corresponding probability and classes.</p>
 <div><img width="550" height="330" src="/2019/07/17/Autonomous-driving-application-using-YOLO/test.jpg"><img width="550" height="330" src="/2019/07/17/Autonomous-driving-application-using-YOLO/test_result.jpg"></div>
 
@@ -258,7 +282,8 @@ You can enlarge the vector to fill the different object parameters with anchor b
 <iframe width="700" height="500" src="//player.bilibili.com/player.html?aid=59559199&cid=103764069&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 
 
-<h2 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h2><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p>[1] Joseph Redmon, Santosh Divvala, Ross Girshick, Ali Farhadi - You Only Look Once: Unified, Real-Time Object Detection (2015)<br>[2] Joseph Redmon, Ali Farhadi - YOLO9000: Better, Faster, Stronger (2016)<br>[3] Allan Zelener - YAD2K: Yet Another Darknet 2 Keras<br>[4] The official YOLO website (<a href="https://pjreddie.com/darknet/yolo/" target="_blank" rel="noopener">https://pjreddie.com/darknet/yolo/</a>)<br>[5] How to build Yolo.h5, <a href="https://blog.csdn.net/Solo95/article/details/85262828" target="_blank" rel="noopener">https://blog.csdn.net/Solo95/article/details/85262828</a><br>[6] Andrew Ng, <a href="https://mooc.study.163.com/term/2001392030.htm" target="_blank" rel="noopener">https://mooc.study.163.com/term/2001392030.htm</a></p>
+<h2 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h2><p><strong>What you should remember</strong>: - YOLO is a state-of-the-art object detection model that is fast and accurate - It runs an input image through a CNN which outputs a 19x19x5x85 dimensional volume. - The encoding can be seen as a grid where each of the 19x19 cells contains information about 5 boxes. - You filter through all the boxes using non-max suppression. Specifically: - Score thresholding on the probability of detecting a class to keep only accurate (high probability) boxes - Intersection over Union (IoU) thresholding to eliminate overlapping boxes - Because training a YOLO model from randomly initialized weights is non-trivial and requires a large dataset as well as lot of computation, we used previously trained model parameters in this exercise. If you wish, you can also try fine-tuning the YOLO model with your own dataset, though this would be a fairly non-trivial exercise.</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p>[1] Joseph Redmon, Santosh Divvala, Ross Girshick, Ali Farhadi - You Only Look Once: Unified, Real-Time Object Detection (2015)<br>[2] Joseph Redmon, Ali Farhadi - YOLO9000: Better, Faster, Stronger (2016)<br>[3] Allan Zelener - YAD2K: Yet Another Darknet 2 Keras<br>[4] The official YOLO website (<a href="https://pjreddie.com/darknet/yolo/" target="_blank" rel="noopener">https://pjreddie.com/darknet/yolo/</a>)<br>[5] How to build Yolo.h5, <a href="https://blog.csdn.net/Solo95/article/details/85262828" target="_blank" rel="noopener">https://blog.csdn.net/Solo95/article/details/85262828</a><br>[6] Andrew Ng, <a href="https://mooc.study.163.com/term/2001392030.htm" target="_blank" rel="noopener">https://mooc.study.163.com/term/2001392030.htm</a></p>
 
 			
 		
