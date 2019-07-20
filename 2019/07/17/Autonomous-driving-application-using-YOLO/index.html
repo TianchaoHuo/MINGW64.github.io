@@ -32,7 +32,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/07/17/Autonomous-driving-application-using-YOLO/anchor%20box.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/07/17/Autonomous-driving-application-using-YOLO/test.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/07/17/Autonomous-driving-application-using-YOLO/test_result.jpg">
-<meta property="og:updated_time" content="2019-07-20T05:15:26.253Z">
+<meta property="og:updated_time" content="2019-07-20T05:21:07.494Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Autonomous driving application using YOLO">
 <meta name="twitter:description" content="OverviewThis assignment is to work out a system detecting cars in a video. To collect data, you can mount a camera to the hood(meaning the front) of the car, which takes pictures of the road every few">
@@ -263,14 +263,15 @@ You can enlarge the vector to fill the different object parameters with anchor b
 <li>excute “python yad2k.py yolo.cfg yolo.weights model_data/yolo.h5”<br>you can refer to this <a href="https://blog.csdn.net/Solo95/article/details/85262828" target="_blank" rel="noopener">blog</a>.</li>
 </ul>
 <ol start="3">
-<li>obtain the outputs from the pre-trained model Yolo</li>
-<li>predictions<ul>
-<li>feed input to Yolo model</li>
-<li>get the Yolo outputs</li>
+<li>Obtain the outputs from the pre-trained model Yolo</li>
+<li>Prediction<ul>
+<li>feed an input image to Yolo model</li>
+<li>get the Yolo outputs (scores, boxes, classes)</li>
 <li>yolo box to corners</li>
 <li>yolo filter boxes</li>
 <li>scale bboxes</li>
 <li>non-max-suppression</li>
+<li>showing the result</li>
 </ul>
 </li>
 </ol>
