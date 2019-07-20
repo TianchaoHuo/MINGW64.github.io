@@ -32,7 +32,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/07/17/Autonomous-driving-application-using-YOLO/anchor%20box.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/07/17/Autonomous-driving-application-using-YOLO/test.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/07/17/Autonomous-driving-application-using-YOLO/test_result.jpg">
-<meta property="og:updated_time" content="2019-07-19T14:24:59.233Z">
+<meta property="og:updated_time" content="2019-07-20T03:38:56.955Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Autonomous driving application using YOLO">
 <meta name="twitter:description" content="OverviewThis assignment is to work out a system detecting cars in a video. To collect data, you can mount a camera to the hood(meaning the front) of the car, which takes pictures of the road every few">
@@ -80,8 +80,6 @@
 				<li><a href="/categories">categories</a></li>
 	        
 				<li><a href="/archives">archives</a></li>
-	        
-				<li><a href="/tags">tags</a></li>
 	        
 			</ul>
 		</nav>
@@ -133,8 +131,6 @@
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
@@ -151,13 +147,11 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 25%"><a href="/">Home</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">Home</a></li>
 		        
-					<li style="width: 25%"><a href="/categories">categories</a></li>
+					<li style="width: 33.333333333333336%"><a href="/categories">categories</a></li>
 		        
-					<li style="width: 25%"><a href="/archives">archives</a></li>
-		        
-					<li style="width: 25%"><a href="/tags">tags</a></li>
+					<li style="width: 33.333333333333336%"><a href="/archives">archives</a></li>
 		        
 				</ul>
 			</nav>
@@ -220,7 +214,7 @@
 <div align="center"><img src="/2019/07/17/Autonomous-driving-application-using-YOLO/sliding windows.jpg"></div>  
 
 <p>As shown above figure, we initially have a red window in the left-most cornner and then crop this corresponding size of image, inputing the neural network, to work out if here has the interested object. Repeating this process by shifting this window, we can finally traverse all the snippets of the image. However, this method has an obvious drawback, which is the computation cost is high. Therefore, we move to <strong>convolutional sliding windows</strong>.</p>
-<h2 id="convolutional-implementation-of-sliding-windows"><a href="#convolutional-implementation-of-sliding-windows" class="headerlink" title="convolutional implementation of sliding windows"></a>convolutional implementation of sliding windows</h2><p>In order to construct a convolutional implementation of sliding windows, we need to know how to change from  fully conneted layers to convolutional layers of a neural network.</p>
+<h2 id="convolutional-implementation-of-sliding-windows"><a href="#convolutional-implementation-of-sliding-windows" class="headerlink" title="convolutional implementation of sliding windows"></a>convolutional implementation of sliding windows</h2><p>In order to implement a convolutional implementation of sliding windows, we need to know how to change from  fully conneted layers to convolutional layers of a neural network.</p>
 <div align="center"><img src="/2019/07/17/Autonomous-driving-application-using-YOLO/Turning FC layer into convolutional layers.jpg"></div>  
 
 <p>What we do is, as shown in above figure, to using 400 5x5 filters in fully conneted layer 1 so that we can have 1x1x400 output layer, instead of a vector of size 400. Similarly we use 400 1x1 filters and 4 1x1 filters in later fully conneted layers.<br>Next, we implement the sliding windows through convolution. Suppose that we have an input image with 16x16x3 and we use 5x5x3 windows to traverse this input image and then we can obtain the 12x12x16 ouput image after a convolutional process. Focusing on the step highlited by the red 4 superscript, we have four small grids, rather than only one, since we combine all the output into a big grid, representing the first convolutional output of the upper left area, the upper right, the  lower left and the lower right, separately. So, this principle of convolutional operation is that we do not need to divide the input image into 4 subsets, passing them through the forward propagation respectively.Instead we take this as an input image to feed to the neural network, as  2x2x4 shown here.</p>
