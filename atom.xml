@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-07-21T13:48:00.102Z</updated>
+  <updated>2019-07-21T13:55:01.247Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,16 +21,13 @@
     <link href="http://yoursite.com/2019/07/21/Logistic-Regression/"/>
     <id>http://yoursite.com/2019/07/21/Logistic-Regression/</id>
     <published>2019-07-21T12:54:03.000Z</published>
-    <updated>2019-07-21T13:48:00.102Z</updated>
+    <updated>2019-07-21T13:55:01.247Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>This article explores the logistic regression, including its function, principle, mathematical formulas. Logistic regression has “sigmoid” function, allowing the samples map to a value in $[0, 1]$ to do classification problems. The difference between linear regression and logistic regression is that the former is used to prediction and the latter is used to classification.</p><h2 id="Principle"><a href="#Principle" class="headerlink" title="Principle"></a>Principle</h2><p>We have a data set $\left{(x_1,y_1),(x_2,y_2),…,(x_m,y_m)\right}$, $y\in\left{0, 1\right}$ and besides that, we have a definition of sigmoid function:<br>$$<br>\sigma(z)=\frac{1}{1+e^{-z}}<br>$$</p><div><img src="/2019/07/21/Logistic-Regression/logistic_properties.jpg"><img src="/2019/07/21/Logistic-Regression/logistic regression.jpg"></div>]]></content>
+    <content type="html"><![CDATA[<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>This article explores the logistic regression, including its function, principle, mathematical formulas. Logistic regression has “sigmoid” function, allowing the samples map to a value in $[0, 1]$ to do classification problems. The difference between linear regression and logistic regression is that the former is used to prediction and the latter is used to classification.</p><a id="more"></a><h2 id="Principle"><a href="#Principle" class="headerlink" title="Principle"></a>Principle</h2><p>We have a data set $\left{(x_1,y_1),(x_2,y_2),…,(x_m,y_m)\right}$, $y\in\left{0, 1\right}$ and besides that, we have a definition of sigmoid function:<br>$$<br>\sigma(z)=\frac{1}{1+e^{-z}}<br>$$</p><div><img src="/2019/07/21/Logistic-Regression/logistic_properties.jpg"><img src="/2019/07/21/Logistic-Regression/logistic regression.jpg"></div><p>#</p><p>Not the end</p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;p&gt;This article explores the logi
-      
+      &lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;p&gt;This article explores the logistic regression, including its function, principle, mathematical formulas. Logistic regression has “sigmoid” function, allowing the samples map to a value in $[0, 1]$ to do classification problems. The difference between linear regression and logistic regression is that the former is used to prediction and the latter is used to classification.&lt;/p&gt;
     
     </summary>
     
