@@ -19,14 +19,14 @@
 <meta property="og:image" content="http://yoursite.com/2019/07/22/An-Introduction-of-Cruise-Control-System/specifications.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/07/22/An-Introduction-of-Cruise-Control-System/model.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/07/22/An-Introduction-of-Cruise-Control-System/P%20control.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/07/22/An-Introduction-of-Cruise-Control-System/P_result.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/07/22/An-Introduction-of-Cruise-Control-System/p_result.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/07/22/An-Introduction-of-Cruise-Control-System/PI%20control.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/07/22/An-Introduction-of-Cruise-Control-System/PI_result.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/07/22/An-Introduction-of-Cruise-Control-System/validation_1.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/07/22/An-Introduction-of-Cruise-Control-System/validation_2.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/07/22/An-Introduction-of-Cruise-Control-System/car_2.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/07/22/An-Introduction-of-Cruise-Control-System/validation_3.jpg">
-<meta property="og:updated_time" content="2019-07-22T11:34:31.355Z">
+<meta property="og:updated_time" content="2019-07-22T11:39:55.523Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="An Introduction of Cruise Control System">
 <meta name="twitter:description" content="OverviewsThis article presents the design process of the cruise controller and briefly analysis the performance of different control approaches including P, PI, and PID. A robust cruise control system">
@@ -211,7 +211,9 @@
 
 <p>Knowing from the above figure, the output of a proportional controller is the multiplication product of the error signal and the proportional gain $Kp$. Therefore, combining with the equation 7, the mathematical model of cruise controller using P control is expressed as:<br>$$<br>2020\dot{x(t)}+(72+K_p)x(t)=K_pr(t) \tag{8}<br>$$</p>
 <p>where $r(t)$ is reference speed set by customers and $x(t)$ is the present velocity of vehicles. It is apparent that equation 8 is a linear system and we can obtain $K_p$ by specifying reference speed and specifications shown in Table 1. In this section, reference speed is 100$km/h$. Through calculating, we can obtain the $K_p$ value, which is at least greater than 962 and then using MATLAB to simulate the performance of the system.</p>
-<div align="center"><img src="/2019/07/22/An-Introduction-of-Cruise-Control-System/P_result.jpg"></div>
+<div align="center"><img src="/2019/07/22/An-Introduction-of-Cruise-Control-System/p_result.jpg"></div>
+
+
 
 <p>It is evident that the final value of a proportional controller is over the permitted error range 1%, which cannot meet practical specifications. It also means that there is a steady-state error using this controlling approach. The reason will be analyzed in the discussion part.  In order to eliminate steady-state error and finally reach the desired speed, we are planning to introduce an integral control method in this project, which is effectively correcting the error.</p>
 <h3 id="Proportional-and-integral-control"><a href="#Proportional-and-integral-control" class="headerlink" title="Proportional and integral control"></a>Proportional and integral control</h3><p>Basing on the above design, we are currently introducing integral control in this section. Integral control in a PID controller is the sum of the instantaneous error over time and gives the accumulated offset that should have been corrected previously. The integral term accelerates the movement of the movement of the process towards reference value and eliminates the residual steady-state error that occurs with a pure proportional controller.</p>
