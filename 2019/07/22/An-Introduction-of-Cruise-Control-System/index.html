@@ -26,7 +26,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/07/22/An-Introduction-of-Cruise-Control-System/validation_2.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/07/22/An-Introduction-of-Cruise-Control-System/car_2.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/07/22/An-Introduction-of-Cruise-Control-System/validation_3.jpg">
-<meta property="og:updated_time" content="2019-07-22T11:23:19.242Z">
+<meta property="og:updated_time" content="2019-07-22T11:25:36.308Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="An Introduction of Cruise Control System">
 <meta name="twitter:description" content="OverviewsThis article presents the design process of the cruise controller and briefly analysis the performance of different control approaches including P, PI, and PID. A robust cruise control system">
@@ -205,20 +205,20 @@
 <p>where $\rho$ is the density of air in $kg/m^3$ , $C_d$ is the dimensionless aerodynamic drag coefficient and A is the cross-sectional area of the car in $m^2$(looking from the front). Looking through [1], we can obtain parameter $ρ= 1.2041$, $C_d = 0.3$, m = 2020kg and A = 2.1$m^2$</p>
 <p>To summarize, we find that the car can be modeled by<br>$$<br>m\dot{v}+ \frac{1}{2}A\rho c_Dv^2 = F + d \tag{4}<br>$$<br>where $d$, which represents constant disturbance, is zero initially in this paper and when finishing the controller design, we will investigate how the controller is influenced in terms of unknown disturbance.</p>
 <h4 id="linearize-the-equations-of-motion"><a href="#linearize-the-equations-of-motion" class="headerlink" title="linearize the equations of motion"></a>linearize the equations of motion</h4><p>Obviously, the above equation is non-linear as it has square and therefore, we need to linearize this equation. This behavior is to investigate the local behavior of a system, where the non-linear effects are expected to small. In this section, we are currently discussing how to locally approximate a system by its linearization. Firstly, we rearrange the equations and make the m $\dot{v}$ equal to zero, which can find the equilibrium points of the equations. Through calculating, we can know that any point can be equilibrium points in this system model. Hence, it is assumed that $(V_0, F_0)$ is an equilibrium point used in this model, where $V_0 = 100m/s$ and $F_0$ is approximately equal to 3600. So, using the following linearize equation from [2]:</p>
-<p>$$<br> f(v,F)\ \approx\ f(V_0,F_0)\ + \frac{\partial f}{\partial v}(V_0,F_0)(V-V_0)+\frac{\partial f}{\partial F}(V_0,F_0)(F-F_0)<br>$$<br>we eventually can get a linearized equation of the system model:<br>$$<br> m\dot{\delta_v} = F -A\rho\ c_Dv_0\delta_v-\ F_0<br>$$<br>where $\delta_v$ is the difference value of the velocity of the car. Now, it is better to change the equation variable to make the equation more understandable. Hence, we replace the  $\delta_v $with $x$. Moreover, it is computable for the coeffects of $\delta_v $ with the parameters we described above. Eventually, we can rearrange it and approximately write the linearized equation of this model:<br>$$<br>2020\dot{x(t)} + 72x(t)= u(t) \tag{6}<br>$$<br>where $u(t)$ is the input of this system, representing the sum of the input $F$ and  $F_0$. Currently we have the linear system model so that we can proceed to the next step, the controller design.</p>
+<p>$$<br> f(v,F)\ \approx\ f(V_0,F_0)\ + \frac{\partial f}{\partial v}(V_0,F_0)(V-V_0)+\frac{\partial f}{\partial F}(V_0,F_0)(F-F_0) \tag{5}<br>$$<br>we eventually can get a linearized equation of the system model:<br>$$<br> m\dot{\delta_v} = F -A\rho\ c_Dv_0\delta_v-\ F_0 \tag{6}<br>$$<br>where $\delta_v$ is the difference value of the velocity of the car. Now, it is better to change the equation variable to make the equation more understandable. Hence, we replace the  $\delta_v $with $x$. Moreover, it is computable for the coeffects of $\delta_v $ with the parameters we described above. Eventually, we can rearrange it and approximately write the linearized equation of this model:<br>$$<br>2020\dot{x(t)} + 72x(t)= u(t) \tag{7}<br>$$<br>where $u(t)$ is the input of this system, representing the sum of the input $F$ and  $F_0$. Currently we have the linear system model so that we can proceed to the next step, the controller design.</p>
 <h2 id="Design-process"><a href="#Design-process" class="headerlink" title="Design process"></a>Design process</h2><h3 id="Proportional-control"><a href="#Proportional-control" class="headerlink" title="Proportional control"></a>Proportional control</h3><p>Initially, we start designing from P control, which is the fundamental step for PID control. The P control is also named proportional control majorly used to correct the error between the set value and process value. Obviously, this is the feedback control continuously feeding the output of the system back to the input of the system with the error between the current output value and the reference value.</p>
 <div align="center"><img src="/2019/07/22/An-Introduction-of-Cruise-Control-System/P control.jpg"></div>
 
-<p>Knowing from the above figure, the output of a proportional controller is the multiplication product of the error signal and the proportional gain $Kp$. Therefore, combining with the equation 6, the mathematical model of cruise controller using P control is expressed as:<br>$$<br>2020\dot{x(t)}+(72+K_p)x(t)=K_pr(t) \tag{7}<br>$$</p>
-<p>where $r(t)$ is reference speed set by customers and $x(t)$ is the present velocity of vehicles. It is apparent that equation 7 is a linear system and we can obtain $K_p$ by specifying reference speed and specifications shown in Table 1. In this section, reference speed is 100$km/h$. Through calculating, we can obtain the $K_p$ value, which is at least greater than 962 and then using MATLAB to simulate the performance of the system.</p>
+<p>Knowing from the above figure, the output of a proportional controller is the multiplication product of the error signal and the proportional gain $Kp$. Therefore, combining with the equation 7, the mathematical model of cruise controller using P control is expressed as:<br>$$<br>2020\dot{x(t)}+(72+K_p)x(t)=K_pr(t) \tag{8}<br>$$</p>
+<p>where $r(t)$ is reference speed set by customers and $x(t)$ is the present velocity of vehicles. It is apparent that equation 8 is a linear system and we can obtain $K_p$ by specifying reference speed and specifications shown in Table 1. In this section, reference speed is 100$km/h$. Through calculating, we can obtain the $K_p$ value, which is at least greater than 962 and then using MATLAB to simulate the performance of the system.</p>
 <div align="center"><img src="/2019/07/22/An-Introduction-of-Cruise-Control-System/P_result.jpg"></div>
 
 <p>It is evident that the final value of a proportional controller is over the permitted error range 1%, which cannot meet practical specifications. It also means that there is a steady-state error using this controlling approach. The reason will be analyzed in the discussion part.  In order to eliminate steady-state error and finally reach the desired speed, we are planning to introduce an integral control method in this project, which is effectively correcting the error.</p>
 <h3 id="Proportional-and-integral-control"><a href="#Proportional-and-integral-control" class="headerlink" title="Proportional and integral control"></a>Proportional and integral control</h3><p>Basing on the above design, we are currently introducing integral control in this section. Integral control in a PID controller is the sum of the instantaneous error over time and gives the accumulated offset that should have been corrected previously. The integral term accelerates the movement of the movement of the process towards reference value and eliminates the residual steady-state error that occurs with a pure proportional controller.</p>
 <div align="center"><img src="/2019/07/22/An-Introduction-of-Cruise-Control-System/PI control.jpg"></div>
 
-<p>From the above Figure , we know that the accumulated error is multiplied by the integral gain Ki and then added with proportional value to input cruise controller. Hence, combining with the equation 6, we can now mathematically obtain the PI control model, which is expressed as:</p>
-<p>$$<br>2020\dot{x}=K_p\left(r\left(t\right)-x\left(t\right)\right)+K_i\int_{0}^{t}\left(r\left(T\right)-x\left(T\right)\right)dT-72x \tag{8}<br>$$</p>
+<p>From the above Figure , we know that the accumulated error is multiplied by the integral gain Ki and then added with proportional value to input cruise controller. Hence, combining with the equation 7, we can now mathematically obtain the PI control model, which is expressed as:</p>
+<p>$$<br>2020\dot{x}=K_p\left(r\left(t\right)-x\left(t\right)\right)+K_i\int_{0}^{t}\left(r\left(T\right)-x\left(T\right)\right)dT-72x \tag{9}<br>$$</p>
 <p>where $r(t)$ is reference speed set by customers and $x(t)$ is the velocity of vehicles as time goes. It is obvious that equation 9 is a linear system and after derivation,  we can obtain $K_p$ and $K_i$ by specifying the reference speed and specifications shown in the table shown above. In this section, reference speed is 100$km/h$. Through calculating, we can obtain the $K_p$ and $K_i$ value, which are assigned 1800 and 600 here, respectively. And then using MATLAB to simulate the performance of the system, as shown in the following:</p>
 <div align="center"><img src="/2019/07/22/An-Introduction-of-Cruise-Control-System/PI_result.jpg"></div>
 
@@ -531,15 +531,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Machine Learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Deep Learning</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">PID</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Machine Learning</a>
               </li>
             
             <div class="clearfix"></div>
