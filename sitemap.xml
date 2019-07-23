@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/07/23/Hyperparameter-tuning-Regularization-and-Optimization/</loc>
+    
+    <lastmod>2019-07-23T05:29:37.632Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/07/11/Linear-Regression/</loc>
     
     <lastmod>2019-07-23T05:26:01.466Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://yoursite.com/2019/07/21/Logistic-Regression/</loc>
     
     <lastmod>2019-07-23T05:25:55.480Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/07/23/Hyperparameter-tuning-Regularization-and-Optimization/</loc>
-    
-    <lastmod>2019-07-23T05:25:11.293Z</lastmod>
     
   </url>
   
