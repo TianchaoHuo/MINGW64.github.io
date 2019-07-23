@@ -18,7 +18,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/07/23/Hyperparameter-tuning-Regularization-and-Optimization/tanh.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/07/23/Hyperparameter-tuning-Regularization-and-Optimization/dropout.jpg">
-<meta property="og:updated_time" content="2019-07-23T04:24:55.417Z">
+<meta property="og:updated_time" content="2019-07-23T04:33:47.558Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hyperparameter tuning, Regularization and Optimization">
 <meta name="twitter:description" content="IntroductionThis article is briefly summarize the content of Deep Learning delivered by Andrew Ng in the first week of the second course.">
@@ -235,7 +235,8 @@
 <li>for the weights of a layer<br>$w^{[l]}=np.random.randn(shape) * np.sqrt(\frac{1}{n^{[l-1]}}) $<br>where $n^{[l-1]}$ is the number of units in layer $l-1$<br>if using <strong>Relu</strong> activation function, the following should be better:<br>$w^{[l]}=np.random.randn(shape) * np.sqrt(\frac{2}{n^{[l-1]}}) $</li>
 <li>for the b parameter<br>just simply initial to zero</li>
 </ul>
-<h2 id="Gradient-checking"><a href="#Gradient-checking" class="headerlink" title="Gradient checking"></a>Gradient checking</h2>
+<h2 id="Gradient-checking"><a href="#Gradient-checking" class="headerlink" title="Gradient checking"></a>Gradient checking</h2><p>To test backprop if correct.  But notice: do not use gradient checking in training process since it can be used only in debugging. And the gradient checking can not be used along with dropout</p>
+
 			
 		
     </div>
