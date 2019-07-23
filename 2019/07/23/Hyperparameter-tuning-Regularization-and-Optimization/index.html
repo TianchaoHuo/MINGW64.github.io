@@ -8,20 +8,20 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Hyperparameter tuning, Regularization and Optimization | Homepage</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="IntroductionThis article is briefly summarize the content of Deep Learning delivered by Andrew Ng in the first week of the second course. Train/Dev/Test setsThe target of test sets is to measure the u">
+  <meta name="description" content="IntroductionThis article is briefly summarize the content of Deep Learning delivered by Andrew Ng in the first week of the second course.">
 <meta name="keywords" content="Deep Learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hyperparameter tuning, Regularization and Optimization">
 <meta property="og:url" content="http://yoursite.com/2019/07/23/Hyperparameter-tuning-Regularization-and-Optimization/index.html">
 <meta property="og:site_name" content="Homepage">
-<meta property="og:description" content="IntroductionThis article is briefly summarize the content of Deep Learning delivered by Andrew Ng in the first week of the second course. Train/Dev/Test setsThe target of test sets is to measure the u">
+<meta property="og:description" content="IntroductionThis article is briefly summarize the content of Deep Learning delivered by Andrew Ng in the first week of the second course.">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/07/23/Hyperparameter-tuning-Regularization-and-Optimization/tanh.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/07/23/Hyperparameter-tuning-Regularization-and-Optimization/dropout.jpg">
-<meta property="og:updated_time" content="2019-07-23T04:18:53.650Z">
+<meta property="og:updated_time" content="2019-07-23T04:24:55.417Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hyperparameter tuning, Regularization and Optimization">
-<meta name="twitter:description" content="IntroductionThis article is briefly summarize the content of Deep Learning delivered by Andrew Ng in the first week of the second course. Train/Dev/Test setsThe target of test sets is to measure the u">
+<meta name="twitter:description" content="IntroductionThis article is briefly summarize the content of Deep Learning delivered by Andrew Ng in the first week of the second course.">
 <meta name="twitter:image" content="http://yoursite.com/2019/07/23/Hyperparameter-tuning-Regularization-and-Optimization/tanh.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Homepage" type="application/atom+xml">
@@ -181,6 +181,9 @@
 
 			
 				<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>This article is briefly summarize the content of Deep Learning delivered by Andrew Ng in the first week of the second course.</p>
+<a id="more"></a>
+
+
 <h2 id="Train-Dev-Test-sets"><a href="#Train-Dev-Test-sets" class="headerlink" title="Train/Dev/Test sets"></a>Train/Dev/Test sets</h2><p>The target of test sets is to measure the unbiased estimation for the selected neural network. We also can omit the test sets if we do not need the unbiased estimation.</p>
 <h2 id="Bias-Variance"><a href="#Bias-Variance" class="headerlink" title="Bias/Variance"></a>Bias/Variance</h2><p><strong>underfitting $\rightarrow$ high bias</strong> (through Train sets)<br><strong>overfitting $\rightarrow$ high variance</strong> (through Dev sets)<br>There are two key data to understand the bias and variance, which are “Train set error” and “Dev set error”. For example,<br>$$<br>Train \ set \ error=1 % \\ Dev \ set \ error=11%<br>$$<br>We can apparently see that the Train set performance is better than the Dev set, meaning that the model overfits the Train sets and in some extent Dev sets rarely play a role in cross validation in this case, called <strong>“high variance”.</strong><br>$$<br>Train \ set \ error=15 % \\ Dev \ set \ error=16%<br>$$<br>Supposing the error people take is $0%$, the above situation is considered as <strong>“high bias”</strong> since the degree of fitting in train sets is not good, so-called underfitting. Contrarily, the result came from Dev set is reasonable since it only over the Train set error 1%.  </p>
 <p>All of above number is based on the <strong>baysian error</strong> (might be 0%) to evaluate. If the baysian error or optimal error is high, it is reasonable for the Train set error or Dev set error become high.</p>
