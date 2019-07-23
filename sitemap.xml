@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/07/11/Linear-Regression/</loc>
+    
+    <lastmod>2019-07-23T05:26:01.466Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/07/21/Logistic-Regression/</loc>
+    
+    <lastmod>2019-07-23T05:25:55.480Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/07/23/Hyperparameter-tuning-Regularization-and-Optimization/</loc>
     
-    <lastmod>2019-07-23T04:33:47.558Z</lastmod>
+    <lastmod>2019-07-23T05:25:11.293Z</lastmod>
     
   </url>
   
@@ -12,13 +26,6 @@
     <loc>http://yoursite.com/2019/07/22/An-Introduction-of-Cruise-Control-System/</loc>
     
     <lastmod>2019-07-22T11:48:47.702Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/07/21/Logistic-Regression/</loc>
-    
-    <lastmod>2019-07-22T07:15:06.896Z</lastmod>
     
   </url>
   
@@ -33,13 +40,6 @@
     <loc>http://yoursite.com/2019/07/13/ElasticFusion/</loc>
     
     <lastmod>2019-07-19T14:54:04.917Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/07/11/Linear-Regression/</loc>
-    
-    <lastmod>2019-07-19T14:53:54.874Z</lastmod>
     
   </url>
   
