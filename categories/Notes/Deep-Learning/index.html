@@ -6,24 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Logistic Regression | Homepage</title>
+  <title>Category: Deep Learning | Homepage</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="IntroductionThis article explores the logistic regression, including its function, principle, mathematical formulas. Logistic regression has “sigmoid” function, allowing the samples map to a value in">
-<meta name="keywords" content="Machine Learning">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Logistic Regression">
-<meta property="og:url" content="http://yoursite.com/2019/07/21/Logistic-Regression/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Homepage">
+<meta property="og:url" content="http://yoursite.com/categories/Notes/Deep-Learning/index.html">
 <meta property="og:site_name" content="Homepage">
-<meta property="og:description" content="IntroductionThis article explores the logistic regression, including its function, principle, mathematical formulas. Logistic regression has “sigmoid” function, allowing the samples map to a value in">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/07/21/Logistic-Regression/logistic_properties.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/07/21/Logistic-Regression/logistic%20regression.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/07/21/Logistic-Regression/relationship.jpg">
-<meta property="og:updated_time" content="2019-07-23T06:13:39.897Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Logistic Regression">
-<meta name="twitter:description" content="IntroductionThis article explores the logistic regression, including its function, principle, mathematical formulas. Logistic regression has “sigmoid” function, allowing the samples map to a value in">
-<meta name="twitter:image" content="http://yoursite.com/2019/07/21/Logistic-Regression/logistic_properties.jpg">
+<meta name="twitter:title" content="Homepage">
   
     <link rel="alternative" href="/atom.xml" title="Homepage" type="application/atom+xml">
   
@@ -153,79 +144,49 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Logistic-Regression" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Logistic Regression
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	
+<a href="/2019/07/23/Hyperparameter-tuning-Regularization-and-Optimization/" class="archive-article-date">
+  	<time datetime="2019-07-23T00:30:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-23</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/07/23/Hyperparameter-tuning-Regularization-and-Optimization/">Hyperparameter tuning, Regularization and Optimization</a>
     </h1>
   
 
-        
-        
-        <!-- 不蒜子统计 -->
-        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
-              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
-        </span>
-
-<a href="/2019/07/21/Logistic-Regression/" class="archive-article-date">
-  	<time datetime="2019-07-21T12:54:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-	    
-
-			
-				<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>This article explores the logistic regression, including its function, principle, mathematical formulas. Logistic regression has “sigmoid” function, allowing the samples map to a value in $[0, 1]$ to do classification problems. The difference between linear regression and logistic regression is that the former is used to prediction and the latter is used to classification.</p>
-<a id="more"></a>
-
-
-<h2 id="Principle"><a href="#Principle" class="headerlink" title="Principle"></a>Principle</h2><p>We have a data set $[(x_1,y_1),(x_2,y_2),…,(x_m,y_m)]$, $y\in{[0, 1]}$ and besides that, we have a definition of sigmoid function:<br>$$<br>\sigma(z)=\frac{1}{1+e^{-z}}<br>$$</p>
-<div><img src="/2019/07/21/Logistic-Regression/logistic_properties.jpg"><img src="/2019/07/21/Logistic-Regression/logistic regression.jpg"></div>
-### cost function
-
-<p>And we have a <strong>cost function</strong> for logistic regression:</p>
-<p>$$<br>J(w)=\sum_{i=1}^m [-y_ilog(t_i)-(1-y_i)log(1-t_i)]<br>$$<br>where $t_i$ is the prediction probability.<br>The reason is that:</p>
-<div align="center"><img src="/2019/07/21/Logistic-Regression/relationship.jpg"></div>
-
-
-<p>when the $y=1$ and the predition $t$ is equal to 1, then the cost function $J(w)=0$, but if $y=1$, $t\rightarrow 0$, then the cost function $J(w)\rightarrow \infty$ and similarly for $y=0$.</p>
-<h3 id="gradient-descent"><a href="#gradient-descent" class="headerlink" title="gradient descent"></a>gradient descent</h3><p>It is known that the derivative of sigmoid function is :<br>$$<br>\sigma(z)=\sigma(z)(1-\sigma(z))<br>$$<br>Minimizing the cost function to obtain weights:<br>$$<br>w^* = argmin_wJ(w)<br>$$</p>
-<p>So that taking a partial derivative of $J(w)$ with respect to $w$, we have:<br>$$<br>\frac{dJ}{dw}=-\frac{d}{dw}[\sum_{i=1}^m [y_ilog(t_i)+(1-y_i)log(1-t_i)]]\\<br>= -\sum_{i=1}^m\frac{d}{dw}[y_i\frac{1}{t_i}t_i(1-t_i)x_i+(1-y_i)\frac{1}{1-t_i}t_i(1-t_i)x_i]\\<br>=\sum_{i=1}^m(t_i-y_i)x_i<br>$$</p>
-<h3 id="updating-the-weights"><a href="#updating-the-weights" class="headerlink" title="updating the weights"></a>updating the weights</h3><p>$$<br>w := w - \alpha\frac{dJ}{dw}<br>$$</p>
-<p>where $\alpha$ is the learning rate.</p>
-<h2 id="Statistics-model"><a href="#Statistics-model" class="headerlink" title="Statistics model"></a>Statistics model</h2><p>we hava likelihood function<br>$$<br>p(t|w)=\prod_{i=1}^mt_i^{y_i}(1-t_i)^{1-y_i}<br>$$<br>where $y_i=p(C_i)$, $C_i$ denotes the classes that this sample belongs to.<br>We wanet to maximize the probability $p(t|w)$, therefore:<br>$$<br>w^* = argmax_wlogp(t|w)\\= argmax_wlog(\prod_{i=1}^mt_i^{y_i}(1-t_i)^{1-y_i})\\=argmax_w\sum_{i=1}^mlog(t_i^{y_i}(1-t_i)^{1-y_i})\\=argmax_w\sum_{i=1}^m(y_ilog(t_i)+(1-y_i)log(1-t_i))<br>$$<br>the $-\sum_{i=1}^m(y_ilog(t_i)+(1-y_i)log(1-t_i))$ is called <strong>cross-entropy error.</strong><br><br><br>Gradient of the error function (using $\frac{d\sigma}{dz}=\sigma(z)(1-\sigma(z))$),<br>$$<br>\frac{dJ}{dw}=\sum_{i=1}^m(t_i-y_i)x_i<br>$$</p>
-<ul>
-<li>Graident does not contain any sigmoid function</li>
-<li>for each data point error is product of deviation $(t_i-y_i)$ and $x_i$</li>
-<li>Maximum likelihood solution can exhibit over-fitting even for many data points; should use regularised error or MAP then.</li>
-</ul>
-<p>And therefore <strong>Maximize likelihood estimate is equal to minimize the error function.</strong></p>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p>[1] 黄海广, <a href="https://github.com/fengdu78/deeplearning_ai_books" target="_blank" rel="noopener">https://github.com/fengdu78/deeplearning_ai_books</a> <br><br>[2] Andrew Ng, <a href="https://study.163.com/course/courseMain.htm?courseId=1004570029" target="_blank" rel="noopener">https://study.163.com/course/courseMain.htm?courseId=1004570029</a><br><br>[3] shuhuai007 <a href="https://github.com/shuhuai007/Machine-Learning-Session" target="_blank" rel="noopener">https://github.com/shuhuai007/Machine-Learning-Session</a><br><br>[4] sml, <a href="https://machlearn.gitlab.io/sml2019/" target="_blank" rel="noopener">https://machlearn.gitlab.io/sml2019/</a></p>
-
-			
-		
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Machine Learning</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Deep Learning</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -235,153 +196,24 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Notes/Machine-Learning//" class="article-tag-list-link color2">Machine Learning</a>
+        			<a href="/categories/Notes/Deep-Learning//" class="article-tag-list-link color4">Deep Learning</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/21/Logistic-Regression/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2019/07/22/An-Introduction-of-Cruise-Control-System/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          An Introduction of Cruise Control System
-        
-      </div>
-    </a>
   
   
-    <a href="/2019/07/17/Autonomous-driving-application-using-YOLO/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Autonomous driving application using YOLO</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Principle"><span class="toc-number">2.</span> <span class="toc-text">Principle</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#gradient-descent"><span class="toc-number">2.1.</span> <span class="toc-text">gradient descent</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#updating-the-weights"><span class="toc-number">2.2.</span> <span class="toc-text">updating the weights</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Statistics-model"><span class="toc-number">3.</span> <span class="toc-text">Statistics model</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-number">4.</span> <span class="toc-text">References</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-     <!-- 来必力City版安装代码 -->
-<div id="lv-container" data-id="city" data-uid="MTAyMC80NTIyNC8yMTczOQ==">
-	<script type="text/javascript">
-   (function(d, s) {
-       var j, e = d.getElementsByTagName(s)[0];
-
-       if (typeof LivereTower === 'function') { return; }
-
-       j = d.createElement(s);
-       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-       j.async = true;
-
-       e.parentNode.insertBefore(j, e);
-   })(document, 'script');
-	</script>
-<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
-</div>
-<!-- City版安装代码已完成 -->
-  
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -416,10 +248,10 @@
 	var yiliaConfig = {
 		mathjax: [object Object],
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
-		isCategory: false,
+		isCategory: true,
 		open_in_new: true,
 		toc_hide_index: true,
 		root: "/",
