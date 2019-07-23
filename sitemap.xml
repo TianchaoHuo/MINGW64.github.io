@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/categories/index.html</loc>
+    
+    <lastmod>2019-07-23T06:24:39.795Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/tags/index.html</loc>
+    
+    <lastmod>2019-07-23T06:23:55.807Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/07/17/Autonomous-driving-application-using-YOLO/</loc>
     
     <lastmod>2019-07-23T06:14:27.547Z</lastmod>
@@ -68,13 +82,6 @@
     <loc>http://yoursite.com/2019/07/12/Change-detection-using-GMM/</loc>
     
     <lastmod>2019-07-19T14:53:37.753Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/categories/index.html</loc>
-    
-    <lastmod>2019-07-13T17:24:02.094Z</lastmod>
     
   </url>
   
