@@ -18,7 +18,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/07/23/Hyperparameter-tuning-Regularization-and-Optimization/tanh.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/07/23/Hyperparameter-tuning-Regularization-and-Optimization/dropout.jpg">
-<meta property="og:updated_time" content="2019-07-23T05:35:42.356Z">
+<meta property="og:updated_time" content="2019-07-23T06:05:24.373Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hyperparameter tuning, Regularization and Optimization">
 <meta name="twitter:description" content="IntroductionThis article is briefly summarize the content of Deep Learning delivered by Andrew Ng in the first week of the second course.">
@@ -185,7 +185,7 @@
 
 
 <h2 id="Train-Dev-Test-sets"><a href="#Train-Dev-Test-sets" class="headerlink" title="Train/Dev/Test sets"></a>Train/Dev/Test sets</h2><p>The target of test sets is to measure the unbiased estimation for the selected neural network. We also can omit the test sets if we do not need the unbiased estimation.</p>
-<h2 id="Bias-Variance"><a href="#Bias-Variance" class="headerlink" title="Bias/Variance"></a>Bias/Variance</h2><p><strong>underfitting $\rightarrow$ high bias</strong> (through Train sets)<br><strong>overfitting $\rightarrow$ high variance</strong> (through Dev sets)<br>There are two key data to understand the bias and variance, which are “Train set error” and “Dev set error”. For example,<br>$$<br>Train \ set \ error=1 % \\ Dev \ set \ error=11%<br>$$<br>We can apparently see that the Train set performance is better than the Dev set, meaning that the model overfits the Train sets and in some extent Dev sets rarely play a role in cross validation in this case, called <strong>“high variance”.</strong><br>$$<br>Train \ set \ error=15 % \\ Dev \ set \ error=16%<br>$$<br>Supposing the error people take is $0%$, the above situation is considered as <strong>“high bias”</strong> since the degree of fitting in train sets is not good, so-called underfitting. Contrarily, the result came from Dev set is reasonable since it only over the Train set error 1%.  </p>
+<h2 id="Bias-Variance"><a href="#Bias-Variance" class="headerlink" title="Bias/Variance"></a>Bias/Variance</h2><p><strong>underfitting</strong> $\rightarrow$ <strong>high bias</strong> (through Train sets)<br><strong>overfitting</strong> $\rightarrow$ <strong>high variance</strong> (through Dev sets)<br>There are two key data to understand the bias and variance, which are “Train set error” and “Dev set error”. For example,<br><strong><center>Train  set  error=1%<br>Dev  set  error=11%</center></strong><br>We can apparently see that the Train set performance is better than the Dev set, meaning that the model overfits the Train sets and in some extent Dev sets rarely play a role in cross validation in this case, called <strong>“high variance”.</strong><br><strong><center>Train  set  error=15%<br>Dev  set  error=16%</center></strong><br>Supposing the error people take is $0%$, the above situation is considered as <strong>“high bias”</strong> since the degree of fitting in train sets is not good, so-called underfitting. Contrarily, the result came from Dev set is reasonable since it only over the Train set error 1%.  </p>
 <p>All of above number is based on the <strong>baysian error</strong> (might be 0%) to evaluate. If the baysian error or optimal error is high, it is reasonable for the Train set error or Dev set error become high.</p>
 <h2 id="Solving-the-Bias-Variance"><a href="#Solving-the-Bias-Variance" class="headerlink" title="Solving the Bias/Variance"></a>Solving the Bias/Variance</h2><p>Firstly need to know wheter the <strong>bias is high or not</strong>. If yes:</p>
 <ul>
@@ -260,11 +260,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Deep-Learning//" class="article-tag-list-link color4">Deep Learning</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Deep-Learning/notes//" class="article-tag-list-link color1">notes</a>
+        			<a href="/categories/Notes//" class="article-tag-list-link color1">Notes</a>
         		</li>
       		
 		</ul>

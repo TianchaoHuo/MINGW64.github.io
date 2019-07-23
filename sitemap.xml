@@ -2,23 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2019/07/23/Hyperparameter-tuning-Regularization-and-Optimization/</loc>
+    <loc>http://yoursite.com/2019/07/17/Autonomous-driving-application-using-YOLO/</loc>
     
-    <lastmod>2019-07-23T05:35:42.356Z</lastmod>
+    <lastmod>2019-07-23T06:08:42.689Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/07/13/Shallow-Neural-Network/</loc>
+    
+    <lastmod>2019-07-23T06:06:47.119Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2019/07/11/Linear-Regression/</loc>
     
-    <lastmod>2019-07-23T05:26:01.466Z</lastmod>
+    <lastmod>2019-07-23T06:05:34.829Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2019/07/21/Logistic-Regression/</loc>
     
-    <lastmod>2019-07-23T05:25:55.480Z</lastmod>
+    <lastmod>2019-07-23T06:05:33.517Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/07/23/Hyperparameter-tuning-Regularization-and-Optimization/</loc>
+    
+    <lastmod>2019-07-23T06:05:24.373Z</lastmod>
     
   </url>
   
@@ -26,13 +40,6 @@
     <loc>http://yoursite.com/2019/07/22/An-Introduction-of-Cruise-Control-System/</loc>
     
     <lastmod>2019-07-22T11:48:47.702Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/07/17/Autonomous-driving-application-using-YOLO/</loc>
-    
-    <lastmod>2019-07-20T05:56:40.369Z</lastmod>
     
   </url>
   
@@ -61,13 +68,6 @@
     <loc>http://yoursite.com/2019/07/12/Change-detection-using-GMM/</loc>
     
     <lastmod>2019-07-19T14:53:37.753Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/07/13/Shallow-Neural-Network/</loc>
-    
-    <lastmod>2019-07-19T14:53:32.620Z</lastmod>
     
   </url>
   
