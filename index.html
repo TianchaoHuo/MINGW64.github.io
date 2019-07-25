@@ -146,6 +146,103 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Optimization-algorithms" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/25/Optimization-algorithms/">Optimization algorithms</a>
+    </h1>
+  
+
+        
+        
+<a href="/2019/07/25/Optimization-algorithms/" class="archive-article-date">
+  	<time datetime="2019-07-25T04:58:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	    
+
+			
+				<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>This article briefly documents the content of deep ai course delivered by Andrew Ng. Optimization algorithms can speed up your neural network.</p>
+<h2 id="Mini-batch-GD"><a href="#Mini-batch-GD" class="headerlink" title="Mini-batch GD"></a>Mini-batch GD</h2><p>The key idea of mini-batch gradient descent is to separate the training sets into numerous subsets, named as mini-batch. And when we are training the neural network, rather than traversing the whole m exmples, the algorithm only learns from the signle subset at a time and then update the weights based on this subset, meaning that using min-batch gradient descent, the gradient can descent n times (if you have n mini-batch) in every traversal of entire trainingset while only one gradient descent is done using batch gradient descent.</p>
+<div align="center"><img src="/2019/07/25/Optimization-algorithms/mini-batch.jpg"></div>
+With a well-turned mini-batch size, usually it outperforms either gradient descent or stochastic gradient descent (particularly when the training set is large).
+## GD and SGD
+**mini-batch = m $\rightarrow$ GD**
+**mini-batch = 1 $\rightarrow$ SGD**
+A simple optimization method in machine learning is gradient descent (GD). When you take gradient steps with respect to all  **m  examples** on each step, it is also called Batch Gradient Descent.
+A variant of this is Stochastic Gradient Descent (SGD), which is equivalent to mini-batch gradient descent where each **mini-batch has just 1 example**. The update rule that you have just implemented does not change. What changes is that you would be computing gradients on just one training example at a time, rather than on the whole training set. The code examples below illustrate the difference between stochastic gradient descent and (batch) gradient descent.
+In Stochastic Gradient Descent, you use only 1 training example before updating the gradients. When the training set is large, SGD can be faster. But the parameters will "oscillate" toward the minimum rather than converge smoothly. Here is an illustration of this:
+<div align="center"><img src="/2019/07/25/Optimization-algorithms/GDandSGD.jpg"></div>
+
+			
+		
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Notes</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Notes//" class="article-tag-list-link color1">Notes</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/25/Optimization-algorithms/">Show all >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Hyperparameter-tuning-Regularization-and-Optimization" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -939,99 +1036,6 @@
 
 
   
-    <article id="post-Linear-Regression" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/11/Linear-Regression/">Linear Regression</a>
-    </h1>
-  
-
-        
-        
-<a href="/2019/07/11/Linear-Regression/" class="archive-article-date">
-  	<time datetime="2019-07-11T11:59:55.577Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-	    
-
-					<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Basically we can generally classify the linear regression as two different types.</p>
-<ul>
-<li>Linear regression with one variable</li>
-<li>Linear regression with multiple variables</li>
-</ul>
-			
-		
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Machine Learning</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Notes//" class="article-tag-list-link color1">Notes</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Notes/Machine-Learning//" class="article-tag-list-link color2">Machine Learning</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/11/Linear-Regression/">Show all >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1159,6 +1163,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Deep Learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Notes</a>
               </li>
              
               <li class="article-tag-list-item">

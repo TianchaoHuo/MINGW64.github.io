@@ -6,15 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Category: Computer Vision | Homepage</title>
+  <title>Optimization algorithms | Homepage</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Homepage">
-<meta property="og:url" content="http://yoursite.com/categories/Deep-Learning/Computer-Vision/index.html">
+  <meta name="description" content="IntroductionThis article briefly documents the content of deep ai course delivered by Andrew Ng. Optimization algorithms can speed up your neural network. Mini-batch GDThe key idea of mini-batch gradi">
+<meta name="keywords" content="Notes">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Optimization algorithms">
+<meta property="og:url" content="http://yoursite.com/2019/07/25/Optimization-algorithms/index.html">
 <meta property="og:site_name" content="Homepage">
+<meta property="og:description" content="IntroductionThis article briefly documents the content of deep ai course delivered by Andrew Ng. Optimization algorithms can speed up your neural network. Mini-batch GDThe key idea of mini-batch gradi">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/07/25/Optimization-algorithms/mini-batch.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/07/25/Optimization-algorithms/GDandSGD.jpg">
+<meta property="og:updated_time" content="2019-07-25T07:07:39.103Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Homepage">
+<meta name="twitter:title" content="Optimization algorithms">
+<meta name="twitter:description" content="IntroductionThis article briefly documents the content of deep ai course delivered by Andrew Ng. Optimization algorithms can speed up your neural network. Mini-batch GDThe key idea of mini-batch gradi">
+<meta name="twitter:image" content="http://yoursite.com/2019/07/25/Optimization-algorithms/mini-batch.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Homepage" type="application/atom+xml">
   
@@ -144,134 +152,207 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Optimization-algorithms" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/07/17/Autonomous-driving-application-using-YOLO/" class="archive-article-date">
-  	<time datetime="2019-07-17T09:30:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-17</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/17/Autonomous-driving-application-using-YOLO/">Autonomous driving application using YOLO</a>
+    <h1 class="article-title" itemprop="name">
+      Optimization algorithms
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        
+        <!-- 不蒜子统计 -->
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2019/07/25/Optimization-algorithms/" class="archive-article-date">
+  	<time datetime="2019-07-25T04:58:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+	    
+
+			
+				<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>This article briefly documents the content of deep ai course delivered by Andrew Ng. Optimization algorithms can speed up your neural network.</p>
+<h2 id="Mini-batch-GD"><a href="#Mini-batch-GD" class="headerlink" title="Mini-batch GD"></a>Mini-batch GD</h2><p>The key idea of mini-batch gradient descent is to separate the training sets into numerous subsets, named as mini-batch. And when we are training the neural network, rather than traversing the whole m exmples, the algorithm only learns from the signle subset at a time and then update the weights based on this subset, meaning that using min-batch gradient descent, the gradient can descent n times (if you have n mini-batch) in every traversal of entire trainingset while only one gradient descent is done using batch gradient descent.</p>
+<div align="center"><img src="/2019/07/25/Optimization-algorithms/mini-batch.jpg"></div>
+With a well-turned mini-batch size, usually it outperforms either gradient descent or stochastic gradient descent (particularly when the training set is large).
+## GD and SGD
+**mini-batch = m $\rightarrow$ GD**
+**mini-batch = 1 $\rightarrow$ SGD**
+A simple optimization method in machine learning is gradient descent (GD). When you take gradient steps with respect to all  **m  examples** on each step, it is also called Batch Gradient Descent.
+A variant of this is Stochastic Gradient Descent (SGD), which is equivalent to mini-batch gradient descent where each **mini-batch has just 1 example**. The update rule that you have just implemented does not change. What changes is that you would be computing gradients on just one training example at a time, rather than on the whole training set. The code examples below illustrate the difference between stochastic gradient descent and (batch) gradient descent.
+In Stochastic Gradient Descent, you use only 1 training example before updating the gradients. When the training set is large, SGD can be faster. But the parameters will "oscillate" toward the minimum rather than converge smoothly. Here is an illustration of this:
+<div align="center"><img src="/2019/07/25/Optimization-algorithms/GDandSGD.jpg"></div>
+
+			
+		
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Computer Vision</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Deep Learning</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Notes</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Deep-Learning//" class="article-tag-list-link color4">Deep Learning</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Deep-Learning/Computer-Vision//" class="article-tag-list-link color1">Computer Vision</a>
+        			<a href="/categories/Notes//" class="article-tag-list-link color1">Notes</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/25/Optimization-algorithms/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/07/16/Style-Transfer/" class="archive-article-date">
-  	<time datetime="2019-07-16T07:50:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-16</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/07/23/Hyperparameter-tuning-Regularization-and-Optimization/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hyperparameter tuning, Regularization and Optimization</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/16/Style-Transfer/">Style-Transfer</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Deep Learning</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Deep-Learning//" class="article-tag-list-link color4">Deep Learning</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Deep-Learning/Computer-Vision//" class="article-tag-list-link color1">Computer Vision</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mini-batch-GD"><span class="toc-number">2.</span> <span class="toc-text">Mini-batch GD</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
+  
+     <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80NTIyNC8yMTczOQ==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
   
   
-    </div></section>
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -306,10 +387,10 @@
 	var yiliaConfig = {
 		mathjax: [object Object],
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
 		root: "/",
