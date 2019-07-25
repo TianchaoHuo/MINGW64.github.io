@@ -18,7 +18,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/07/25/Optimization-algorithms/mini-batch.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/07/25/Optimization-algorithms/GDandSGD.jpg">
-<meta property="og:updated_time" content="2019-07-25T07:13:17.238Z">
+<meta property="og:updated_time" content="2019-07-25T09:48:19.249Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Optimization algorithms">
 <meta name="twitter:description" content="IntroductionThis article briefly documents the content of deep ai course delivered by Andrew Ng. Optimization algorithms can speed up your neural network.">
@@ -182,7 +182,7 @@
 			
 				<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>This article briefly documents the content of deep ai course delivered by Andrew Ng. Optimization algorithms can speed up your neural network.</p>
 <a id="more"></a>
-<h2 id="Mini-batch-GD"><a href="#Mini-batch-GD" class="headerlink" title="Mini-batch GD"></a>Mini-batch GD</h2><p>The key idea of mini-batch gradient descent is to separate the training sets into numerous subsets, named as mini-batch. And when we are training the neural network, rather than traversing the whole m exmples, the algorithm only learns from the signle subset at a time and then update the weights based on this subset, meaning that using min-batch gradient descent, the gradient can descent n times (if you have n mini-batch) in every traversal of entire trainingset while only one gradient descent is done using batch gradient descent.</p>
+<h2 id="Mini-batch-GD"><a href="#Mini-batch-GD" class="headerlink" title="Mini-batch GD"></a>Mini-batch GD</h2><p>The key idea of mini-batch gradient descent is to separate the training sets into numerous subsets, named as mini-batch. And when we are training the neural network, rather than traversing the whole m exmples, the algorithm only traverses from the signle subset at a time and then update the weights based on this subset, meaning that using min-batch gradient descent, the gradient can descent n times (if you have n mini-batch) in every traversal of entire trainingset while only one gradient descent is done using batch gradient descent.</p>
 <div align="center"><img src="/2019/07/25/Optimization-algorithms/mini-batch.jpg"></div>
 With a well-turned mini-batch size, usually it outperforms either gradient descent or stochastic gradient descent (particularly when the training set is large).
 
@@ -191,8 +191,11 @@ With a well-turned mini-batch size, usually it outperforms either gradient desce
 <div align="center"><img src="/2019/07/25/Optimization-algorithms/GDandSGD.jpg"></div>
 
 
-<p>##</p>
 
+
+<h2 id="GD-with-Momentum"><a href="#GD-with-Momentum" class="headerlink" title="GD with Momentum"></a>GD with Momentum</h2><p>From the gradient example, we can see that in the vertical axis, I want to learn slowly since I need to <strong>reduce these fluctuations</strong>. But in the horizontal axis, I want to speed up the learning so that we can achieve the minimum points ASAP. What momentum does is to compute the differential $dW, db$ in each iteration. And then<br>$$<br>V_{dW}=\beta V_{dW}+(1-\beta)dW \\V_{db}=\beta V_{db}+(1-\beta)dW<br>$$<br>updating the weight as before:<br>$$<br>W:=W - \alpha V_{dW}\\b:=b - \alpha V_{db}<br>$$</p>
+<p>You can see that the mean of fluctuations in -</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2>
 			
 		
     </div>
@@ -314,7 +317,7 @@ With a well-turned mini-batch size, usually it outperforms either gradient desce
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mini-batch-GD"><span class="toc-number">2.</span> <span class="toc-text">Mini-batch GD</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GD-and-SGD"><span class="toc-number">3.</span> <span class="toc-text">GD and SGD</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mini-batch-GD"><span class="toc-number">2.</span> <span class="toc-text">Mini-batch GD</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GD-and-SGD"><span class="toc-number">3.</span> <span class="toc-text">GD and SGD</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GD-with-Momentum"><span class="toc-number">4.</span> <span class="toc-text">GD with Momentum</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-number">5.</span> <span class="toc-text">References</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -475,11 +478,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Notes</a>
+                <a href="javascript:void(0)" class="js-tag color4">Deep Learning</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Deep Learning</a>
+                <a href="javascript:void(0)" class="js-tag color1">Notes</a>
               </li>
              
               <li class="article-tag-list-item">
