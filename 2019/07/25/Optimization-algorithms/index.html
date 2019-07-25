@@ -8,20 +8,20 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Optimization algorithms | Homepage</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="IntroductionThis article briefly documents the content of deep ai course delivered by Andrew Ng. Optimization algorithms can speed up your neural network. Mini-batch GDThe key idea of mini-batch gradi">
+  <meta name="description" content="IntroductionThis article briefly documents the content of deep ai course delivered by Andrew Ng. Optimization algorithms can speed up your neural network.">
 <meta name="keywords" content="Notes">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Optimization algorithms">
 <meta property="og:url" content="http://yoursite.com/2019/07/25/Optimization-algorithms/index.html">
 <meta property="og:site_name" content="Homepage">
-<meta property="og:description" content="IntroductionThis article briefly documents the content of deep ai course delivered by Andrew Ng. Optimization algorithms can speed up your neural network. Mini-batch GDThe key idea of mini-batch gradi">
+<meta property="og:description" content="IntroductionThis article briefly documents the content of deep ai course delivered by Andrew Ng. Optimization algorithms can speed up your neural network.">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/07/25/Optimization-algorithms/mini-batch.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/07/25/Optimization-algorithms/GDandSGD.jpg">
-<meta property="og:updated_time" content="2019-07-25T07:07:39.103Z">
+<meta property="og:updated_time" content="2019-07-25T07:09:13.937Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Optimization algorithms">
-<meta name="twitter:description" content="IntroductionThis article briefly documents the content of deep ai course delivered by Andrew Ng. Optimization algorithms can speed up your neural network. Mini-batch GDThe key idea of mini-batch gradi">
+<meta name="twitter:description" content="IntroductionThis article briefly documents the content of deep ai course delivered by Andrew Ng. Optimization algorithms can speed up your neural network.">
 <meta name="twitter:image" content="http://yoursite.com/2019/07/25/Optimization-algorithms/mini-batch.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Homepage" type="application/atom+xml">
@@ -181,6 +181,7 @@
 
 			
 				<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>This article briefly documents the content of deep ai course delivered by Andrew Ng. Optimization algorithms can speed up your neural network.</p>
+<a id="more"></a>
 <h2 id="Mini-batch-GD"><a href="#Mini-batch-GD" class="headerlink" title="Mini-batch GD"></a>Mini-batch GD</h2><p>The key idea of mini-batch gradient descent is to separate the training sets into numerous subsets, named as mini-batch. And when we are training the neural network, rather than traversing the whole m exmples, the algorithm only learns from the signle subset at a time and then update the weights based on this subset, meaning that using min-batch gradient descent, the gradient can descent n times (if you have n mini-batch) in every traversal of entire trainingset while only one gradient descent is done using batch gradient descent.</p>
 <div align="center"><img src="/2019/07/25/Optimization-algorithms/mini-batch.jpg"></div>
 With a well-turned mini-batch size, usually it outperforms either gradient descent or stochastic gradient descent (particularly when the training set is large).
