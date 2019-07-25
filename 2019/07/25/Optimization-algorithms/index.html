@@ -18,7 +18,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/07/25/Optimization-algorithms/mini-batch.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/07/25/Optimization-algorithms/GDandSGD.jpg">
-<meta property="og:updated_time" content="2019-07-25T07:09:13.937Z">
+<meta property="og:updated_time" content="2019-07-25T07:13:17.238Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Optimization algorithms">
 <meta name="twitter:description" content="IntroductionThis article briefly documents the content of deep ai course delivered by Andrew Ng. Optimization algorithms can speed up your neural network.">
@@ -185,13 +185,13 @@
 <h2 id="Mini-batch-GD"><a href="#Mini-batch-GD" class="headerlink" title="Mini-batch GD"></a>Mini-batch GD</h2><p>The key idea of mini-batch gradient descent is to separate the training sets into numerous subsets, named as mini-batch. And when we are training the neural network, rather than traversing the whole m exmples, the algorithm only learns from the signle subset at a time and then update the weights based on this subset, meaning that using min-batch gradient descent, the gradient can descent n times (if you have n mini-batch) in every traversal of entire trainingset while only one gradient descent is done using batch gradient descent.</p>
 <div align="center"><img src="/2019/07/25/Optimization-algorithms/mini-batch.jpg"></div>
 With a well-turned mini-batch size, usually it outperforms either gradient descent or stochastic gradient descent (particularly when the training set is large).
-## GD and SGD
-**mini-batch = m $\rightarrow$ GD**
-**mini-batch = 1 $\rightarrow$ SGD**
-A simple optimization method in machine learning is gradient descent (GD). When you take gradient steps with respect to all  **m  examples** on each step, it is also called Batch Gradient Descent.
-A variant of this is Stochastic Gradient Descent (SGD), which is equivalent to mini-batch gradient descent where each **mini-batch has just 1 example**. The update rule that you have just implemented does not change. What changes is that you would be computing gradients on just one training example at a time, rather than on the whole training set. The code examples below illustrate the difference between stochastic gradient descent and (batch) gradient descent.
-In Stochastic Gradient Descent, you use only 1 training example before updating the gradients. When the training set is large, SGD can be faster. But the parameters will "oscillate" toward the minimum rather than converge smoothly. Here is an illustration of this:
+
+
+<h2 id="GD-and-SGD"><a href="#GD-and-SGD" class="headerlink" title="GD and SGD"></a>GD and SGD</h2><p><strong>mini-batch = m $\rightarrow$ GD</strong><br><strong>mini-batch = 1 $\rightarrow$ SGD</strong><br>A simple optimization method in machine learning is gradient descent (GD). When you take gradient steps with respect to all  <strong>m  examples</strong> on each step, it is also called Batch Gradient Descent.<br>A variant of this is Stochastic Gradient Descent (SGD), which is equivalent to mini-batch gradient descent where each <strong>mini-batch has just 1 example</strong>. The update rule that you have just implemented does not change. What changes is that you would be computing gradients on just one training example at a time, rather than on the whole training set. The code examples below illustrate the difference between stochastic gradient descent and (batch) gradient descent.<br>In Stochastic Gradient Descent, you use only 1 training example before updating the gradients. When the training set is large, SGD can be faster. But the parameters will “oscillate” toward the minimum rather than converge smoothly. Here is an illustration of this:</p>
 <div align="center"><img src="/2019/07/25/Optimization-algorithms/GDandSGD.jpg"></div>
+
+
+<p>##</p>
 
 			
 		
@@ -314,7 +314,7 @@ In Stochastic Gradient Descent, you use only 1 training example before updating 
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mini-batch-GD"><span class="toc-number">2.</span> <span class="toc-text">Mini-batch GD</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mini-batch-GD"><span class="toc-number">2.</span> <span class="toc-text">Mini-batch GD</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GD-and-SGD"><span class="toc-number">3.</span> <span class="toc-text">GD and SGD</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -475,11 +475,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Deep Learning</a>
+                <a href="javascript:void(0)" class="js-tag color1">Notes</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Notes</a>
+                <a href="javascript:void(0)" class="js-tag color4">Deep Learning</a>
               </li>
              
               <li class="article-tag-list-item">
